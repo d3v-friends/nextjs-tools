@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 BASE_TAG=$1
-TAG="v$BASE_TAG"
+TAG="$BASE_TAG"
 ORIGIN="origin"
 
 echo "tag=$TAG, base_tag=$BASE_TAG, origin=$ORIGIN"

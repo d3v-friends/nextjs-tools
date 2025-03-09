@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { pbkdf2Sync } from "pbkdf2";
+import { pbkdf2Sync } from "../pbkdf2";
 function salting({ salt, password }) {
     return pbkdf2Sync(password, salt, 50, 32, "sha512").toString("base64");
 }

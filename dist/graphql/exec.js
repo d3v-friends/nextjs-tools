@@ -1,6 +1,6 @@
 "use server";
-import { fnCookies, fnEnv } from "@func";
-import { errEmptyGraphqlResponse, errUnexpectedGraphqlError } from "@func/graphql/types";
+import { fnCookies, fnEnv } from "..";
+import { errEmptyGraphqlResponse, errUnexpectedGraphqlError } from "../graphql/types";
 const envHost = "GQL_HOST";
 export default async function (args) {
     let query = args.query.toString();
