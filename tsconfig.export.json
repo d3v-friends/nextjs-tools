@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "lib": [
-      "es5",
-      "es6",
       "esnext"
     ],
     "baseUrl": ".",

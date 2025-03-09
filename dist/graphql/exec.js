@@ -1,95 +1,38 @@
 "use server";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 import { fnCookies, fnEnv } from "@func";
 import { errEmptyGraphqlResponse, errUnexpectedGraphqlError } from "@func/graphql/types";
-var envHost = "GQL_HOST";
-export default function (args) {
-    return __awaiter(this, void 0, void 0, function () {
-        var query, _i, _a, str, body, response, _b, _c, res;
-        var _d;
-        return __generator(this, function (_e) {
-            switch (_e.label) {
-                case 0:
-                    query = args.query.toString();
-                    if (args.query instanceof Array) {
-                        query = "";
-                        for (_i = 0, _a = args.query; _i < _a.length; _i++) {
-                            str = _a[_i];
-                            query = "".concat(query).concat(str);
-                        }
-                    }
-                    _d = {
-                        method: "POST"
-                    };
-                    return [4, fnCookies.newHeader(args.header)];
-                case 1:
-                    body = (_d.headers = _e.sent(),
-                        _d.body = JSON.stringify({
-                            query: query,
-                            variables: args.variables,
-                        }),
-                        _d);
-                    _b = fetch;
-                    return [4, fnEnv.server.string(envHost)];
-                case 2: return [4, _b.apply(void 0, [_e.sent(), body])];
-                case 3:
-                    response = _e.sent();
-                    _c = response.status;
-                    switch (_c) {
-                        case 200: return [3, 4];
-                    }
-                    return [3, 6];
-                case 4: return [4, response.json()];
-                case 5:
-                    res = _e.sent();
-                    console.log("fetch_success", body, JSON.stringify(res));
-                    if (res.hasOwnProperty("errors")) {
-                        throw new Error(res.errors[0].message);
-                    }
-                    if (!res.hasOwnProperty("data")) {
-                        throw new Error("".concat(errEmptyGraphqlResponse, ": value=").concat(JSON.stringify(res)));
-                    }
-                    return [2, res.data];
-                case 6:
-                    console.log("fetch_failed", body);
-                    throw new Error("".concat(errUnexpectedGraphqlError, ": value=").concat(JSON.stringify(response)));
+const envHost = "GQL_HOST";
+export default async function (args) {
+    let query = args.query.toString();
+    if (args.query instanceof Array) {
+        query = "";
+        for (let str of args.query) {
+            query = `${query}${str}`;
+        }
+    }
+    const body = {
+        method: "POST",
+        headers: await fnCookies.newHeader(args.header),
+        body: JSON.stringify({
+            query,
+            variables: args.variables,
+        }),
+    };
+    const response = await fetch(await fnEnv.server.string(envHost), body);
+    switch (response.status) {
+        case 200:
+            const res = await response.json();
+            console.log("fetch_success", body, JSON.stringify(res));
+            if (res.hasOwnProperty("errors")) {
+                throw new Error(res.errors[0].message);
             }
-        });
-    });
+            if (!res.hasOwnProperty("data")) {
+                throw new Error(`${errEmptyGraphqlResponse}: value=${JSON.stringify(res)}`);
+            }
+            return res.data;
+        default:
+            console.log("fetch_failed", body);
+            throw new Error(`${errUnexpectedGraphqlError}: value=${JSON.stringify(response)}`);
+    }
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXhlYy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9mdW5jL2dyYXBocWwvZXhlYy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLENBQUM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFDYixPQUFPLEVBQUMsU0FBUyxFQUFFLEtBQUssRUFBQyxNQUFNLE9BQU8sQ0FBQztBQUN2QyxPQUFPLEVBQUMsdUJBQXVCLEVBQUUseUJBQXlCLEVBQXNCLE1BQU0scUJBQXFCLENBQUM7QUFFNUcsSUFBTSxPQUFPLEdBQUcsVUFBVSxDQUFDO0FBZ0IzQixNQUFNLENBQUMsT0FBTyxXQUFzQyxJQUFtQzs7Ozs7OztvQkFFbEYsS0FBSyxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxFQUFFLENBQUM7b0JBRWxDLElBQUksSUFBSSxDQUFDLEtBQUssWUFBWSxLQUFLLEVBQUUsQ0FBQzt3QkFDakMsS0FBSyxHQUFHLEVBQUUsQ0FBQzt3QkFDWCxXQUEwQixFQUFWLEtBQUEsSUFBSSxDQUFDLEtBQUssRUFBVixjQUFVLEVBQVYsSUFBVSxFQUFFLENBQUM7NEJBQXBCLEdBQUc7NEJBQ1gsS0FBSyxHQUFHLFVBQUcsS0FBSyxTQUFHLEdBQUcsQ0FBRSxDQUFDO3dCQUMxQixDQUFDO29CQUNGLENBQUM7O3dCQUdBLE1BQU0sRUFBRSxNQUFNOztvQkFDTCxXQUFNLFNBQVMsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxFQUFBOztvQkFGMUMsSUFBSSxJQUVULFVBQU8sR0FBRSxTQUFzQzt3QkFDL0MsT0FBSSxHQUFFLElBQUksQ0FBQyxTQUFTLENBQUM7NEJBQ3BCLEtBQUssT0FBQTs0QkFDTCxTQUFTLEVBQUUsSUFBSSxDQUFDLFNBQVM7eUJBQ3pCLENBQUM7MkJBQ0Y7b0JBRXNCLEtBQUEsS0FBSyxDQUFBO29CQUFDLFdBQU0sS0FBSyxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUMsT0FBTyxDQUFDLEVBQUE7d0JBQTlDLFdBQU0sa0JBQU0sU0FBa0MsRUFBRSxJQUFJLEVBQUMsRUFBQTs7b0JBQWhFLFFBQVEsR0FBRyxTQUFxRDtvQkFFOUQsS0FBQSxRQUFRLENBQUMsTUFBTSxDQUFBOzs2QkFDakIsR0FBRyxDQUFDLENBQUosY0FBRzs7O3dCQUNVLFdBQU0sUUFBUSxDQUFDLElBQUksRUFBRSxFQUFBOztvQkFBaEMsR0FBRyxHQUFRLFNBQXFCO29CQUN0QyxPQUFPLENBQUMsR0FBRyxDQUFDLGVBQWUsRUFBRSxJQUFJLEVBQUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO29CQUV4RCxJQUFJLEdBQUcsQ0FBQyxjQUFjLENBQUMsUUFBUSxDQUFDLEVBQUUsQ0FBQzt3QkFDbEMsTUFBTSxJQUFJLEtBQUssQ0FBRSxHQUF3QixDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsQ0FBQztvQkFDOUQsQ0FBQztvQkFFRCxJQUFJLENBQUMsR0FBRyxDQUFDLGNBQWMsQ0FBQyxNQUFNLENBQUMsRUFBRSxDQUFDO3dCQUNqQyxNQUFNLElBQUksS0FBSyxDQUFDLFVBQUcsdUJBQXVCLHFCQUFXLElBQUksQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLENBQUUsQ0FBQyxDQUFDO29CQUM3RSxDQUFDO29CQUVELFdBQU8sR0FBRyxDQUFDLElBQUksRUFBQzs7b0JBRWhCLE9BQU8sQ0FBQyxHQUFHLENBQUMsY0FBYyxFQUFFLElBQUksQ0FBQyxDQUFDO29CQUNsQyxNQUFNLElBQUksS0FBSyxDQUFDLFVBQUcseUJBQXlCLHFCQUFXLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLENBQUUsQ0FBQyxDQUFDOzs7O0NBRXJGIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXhlYy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9mdW5jL2dyYXBocWwvZXhlYy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLENBQUM7QUFDYixPQUFPLEVBQUMsU0FBUyxFQUFFLEtBQUssRUFBQyxNQUFNLE9BQU8sQ0FBQztBQUN2QyxPQUFPLEVBQUMsdUJBQXVCLEVBQUUseUJBQXlCLEVBQXNCLE1BQU0scUJBQXFCLENBQUM7QUFFNUcsTUFBTSxPQUFPLEdBQUcsVUFBVSxDQUFDO0FBZ0IzQixNQUFNLENBQUMsT0FBTyxDQUFDLEtBQUssV0FBZ0MsSUFBbUM7SUFFdEYsSUFBSSxLQUFLLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxRQUFRLEVBQUUsQ0FBQztJQUVsQyxJQUFJLElBQUksQ0FBQyxLQUFLLFlBQVksS0FBSyxFQUFFLENBQUM7UUFDakMsS0FBSyxHQUFHLEVBQUUsQ0FBQztRQUNYLEtBQUssSUFBSSxHQUFHLElBQUksSUFBSSxDQUFDLEtBQUssRUFBRSxDQUFDO1lBQzVCLEtBQUssR0FBRyxHQUFHLEtBQUssR0FBRyxHQUFHLEVBQUUsQ0FBQztRQUMxQixDQUFDO0lBQ0YsQ0FBQztJQUVELE1BQU0sSUFBSSxHQUFHO1FBQ1osTUFBTSxFQUFFLE1BQU07UUFDZCxPQUFPLEVBQUUsTUFBTSxTQUFTLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxNQUFNLENBQUM7UUFDL0MsSUFBSSxFQUFFLElBQUksQ0FBQyxTQUFTLENBQUM7WUFDcEIsS0FBSztZQUNMLFNBQVMsRUFBRSxJQUFJLENBQUMsU0FBUztTQUN6QixDQUFDO0tBQ0YsQ0FBQztJQUVGLE1BQU0sUUFBUSxHQUFHLE1BQU0sS0FBSyxDQUFDLE1BQU0sS0FBSyxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUMsT0FBTyxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUM7SUFFdkUsUUFBUSxRQUFRLENBQUMsTUFBTSxFQUFFLENBQUM7UUFDekIsS0FBSyxHQUFHO1lBQ1AsTUFBTSxHQUFHLEdBQVEsTUFBTSxRQUFRLENBQUMsSUFBSSxFQUFFLENBQUM7WUFDdkMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxlQUFlLEVBQUUsSUFBSSxFQUFFLElBQUksQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQztZQUV4RCxJQUFJLEdBQUcsQ0FBQyxjQUFjLENBQUMsUUFBUSxDQUFDLEVBQUUsQ0FBQztnQkFDbEMsTUFBTSxJQUFJLEtBQUssQ0FBRSxHQUF3QixDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsQ0FBQztZQUM5RCxDQUFDO1lBRUQsSUFBSSxDQUFDLEdBQUcsQ0FBQyxjQUFjLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQztnQkFDakMsTUFBTSxJQUFJLEtBQUssQ0FBQyxHQUFHLHVCQUF1QixXQUFXLElBQUksQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxDQUFDO1lBQzdFLENBQUM7WUFFRCxPQUFPLEdBQUcsQ0FBQyxJQUFJLENBQUM7UUFDakI7WUFDQyxPQUFPLENBQUMsR0FBRyxDQUFDLGNBQWMsRUFBRSxJQUFJLENBQUMsQ0FBQztZQUNsQyxNQUFNLElBQUksS0FBSyxDQUFDLEdBQUcseUJBQXlCLFdBQVcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUMsRUFBRSxDQUFDLENBQUM7SUFDckYsQ0FBQztBQUNGLENBQUMifQ==
