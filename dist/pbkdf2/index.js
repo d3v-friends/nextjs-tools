@@ -1,0 +1,14 @@
+import { randomUUID } from "node:crypto";
+import { pbkdf2Sync } from "pbkdf2";
+function salting(_a) {
+    var salt = _a.salt, password = _a.password;
+    return pbkdf2Sync(password, salt, 50, 32, "sha512").toString("base64");
+}
+function newSalt() {
+    return randomUUID();
+}
+export default {
+    salting: salting,
+    newSalt: newSalt,
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvZnVuYy9wYmtkZjIvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFDLFVBQVUsRUFBQyxNQUFNLGFBQWEsQ0FBQztBQUN2QyxPQUFPLEVBQUMsVUFBVSxFQUFDLE1BQU0sUUFBUSxDQUFDO0FBRWxDLFNBQVMsT0FBTyxDQUFDLEVBQWtEO1FBQWpELElBQUksVUFBQSxFQUFFLFFBQVEsY0FBQTtJQUMvQixPQUFPLFVBQVUsQ0FBQyxRQUFRLEVBQUUsSUFBSSxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsUUFBUSxDQUFDLENBQUMsUUFBUSxDQUFDLFFBQVEsQ0FBQyxDQUFDO0FBQ3hFLENBQUM7QUFFRCxTQUFTLE9BQU87SUFDZixPQUFPLFVBQVUsRUFBRSxDQUFDO0FBQ3JCLENBQUM7QUFFRCxlQUFlO0lBQ2QsT0FBTyxTQUFBO0lBQ1AsT0FBTyxTQUFBO0NBQ1AsQ0FBQyJ9

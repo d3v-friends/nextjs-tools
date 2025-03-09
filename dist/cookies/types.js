@@ -1,0 +1,6 @@
+export var httpHeaderAuthorization = "Authorization";
+export var httpHeaderContentType = "Content-Type";
+export var httpHeaderUserAgent = "User-Agent";
+export var httpXForwardedHost = "X-Forwarded-Host";
+export var contentTypeApplicationJson = "Application/json";
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHlwZXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvZnVuYy9jb29raWVzL3R5cGVzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBQyxJQUFNLHVCQUF1QixHQUFHLGVBQWUsQ0FBQztBQUN2RCxNQUFNLENBQUMsSUFBTSxxQkFBcUIsR0FBRyxjQUFjLENBQUM7QUFDcEQsTUFBTSxDQUFDLElBQU0sbUJBQW1CLEdBQUcsWUFBWSxDQUFDO0FBQ2hELE1BQU0sQ0FBQyxJQUFNLGtCQUFrQixHQUFHLGtCQUFrQixDQUFDO0FBQ3JELE1BQU0sQ0FBQyxJQUFNLDBCQUEwQixHQUFHLGtCQUFrQixDQUFDIn0=
