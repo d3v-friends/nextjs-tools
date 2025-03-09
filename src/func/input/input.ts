@@ -1,4 +1,5 @@
-import {fnReflect} from "@func";
+import {fnReflect} from "..";
+import {Nullable} from "../types";
 import {
 	errInvalidFormValueRegexp,
 	errInvalidFormValueType,
@@ -10,8 +11,7 @@ import {
 	InputHelper,
 	InputOption,
 	StringBool,
-} from "@func/action/types";
-import {Nullable} from "@func/pure";
+} from "./types";
 
 function username(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 	return (name) => {

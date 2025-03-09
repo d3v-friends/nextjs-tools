@@ -1,9 +1,11 @@
+import fnAction from "./action";
 import fnCookies from "./cookies";
 import fnCss from "./css";
 import fnEnv from "./env";
 import fnGraphql from "./graphql";
+import fnInput from "./input";
 import fnParams from "./params";
 import fnPbkdf2 from "./pbkdf2";
 import fnReflect from "./reflect";
 
-export {fnCss, fnCookies, fnEnv, fnReflect, fnGraphql, fnPbkdf2, fnParams};
+export {fnCss, fnCookies, fnEnv, fnReflect, fnGraphql, fnPbkdf2, fnParams, fnInput, fnAction};

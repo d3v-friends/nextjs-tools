@@ -1,6 +1,6 @@
 "use server";
-import {TypedDocumentString} from "@func/graphql/types";
 import exec from "./exec";
+import {TypedDocumentString} from "./types";
 
 export default async function <TResult, TVariables>(
 	query: TypedDocumentString<TResult, TVariables>,

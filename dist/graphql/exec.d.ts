@@ -1,4 +1,4 @@
-import { TypedDocumentString } from "../graphql/types";
+import { TypedDocumentString } from "./types";
 type ExecArgs<TResult, TVariables> = {
     header?: Record<string, string>;
     query: TypedDocumentString<TResult, TVariables>;

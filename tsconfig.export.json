@@ -18,31 +18,12 @@
     "declaration": true,
     "inlineSourceMap": true,
     "removeComments": true,
-    "paths": {
-      "@comp/*": [
-        "./src/comp/*"
-      ],
-      "@comp": [
-        "./src/comp"
-      ],
-      "@func/*": [
-        "./src/func/*"
-      ],
-      "@func": [
-        "./src/func"
-      ],
-      "@type": [
-        "./src/type"
-      ],
-      "@type/*": [
-        "./src/type/*"
-      ]
-    }
+    "paths": {}
   },
   "include": [
-    "./src/func/index.ts"
+    "./src/func"
   ],
   "exclude": [
-    "node_modules"
+    //    "node_modules"
   ]
 }

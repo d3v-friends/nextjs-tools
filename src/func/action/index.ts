@@ -1,10 +1,7 @@
-import fnInput from "./input";
 import newAction from "./new-action";
 import useAction from "./use-action";
 
-const fnAction = {
+export default {
 	new: newAction,
 	use: useAction,
 };
-
-export {fnInput, fnAction};

@@ -1,4 +1,4 @@
-import {fnInput} from "@func/action";
+import {fnInput} from "../func";
 
 export const sampleForm = fnInput.newForm({
 	username: fnInput.username(),

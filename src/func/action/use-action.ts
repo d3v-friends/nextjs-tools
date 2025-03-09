@@ -1,8 +1,9 @@
 "use client";
 
-import {fnInput} from "@func/action/index";
-import {FormHelper, ServerAction, State} from "@func/action/types";
 import {useActionState} from "react";
+import fnInput from "../input";
+import {FormHelper} from "../input/types";
+import {ServerAction, State} from "./types";
 
 export default function <INPUT, RESPONSE>(
 	handler: ServerAction<INPUT, RESPONSE>,
