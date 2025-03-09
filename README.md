@@ -4,3 +4,13 @@
 	1. 컴파일러가 정확하게 경로를 수정하지 못함
 	2. tsc-alias 등의 툴이 있지만 라이브러리와 혼동하여 매번 예외 처리 해줘야함
 	3. 처음부터 그냥 상대 경로 쓰는 것으로 결정
+
+* package.json
+	- 다음과 같은 방식으로 불러와서 사용가능. git-tag 으로 버전 관리한다.
+    ~~~json
+    {
+      "dependencies": {
+        "nextjs-tools": "git+https://github.com/d3v-friends/nextjs-tools#0.1.3"
+      }
+    }
+    ~~~
