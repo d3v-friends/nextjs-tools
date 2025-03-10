@@ -1,4 +1,4 @@
-import { FnInput, FormArgs, FormHelper, HTMLInputAttributes, InputOption, StringBool } from "./types";
+import { FnInput, FormArgs, FormHelper, HTMLInputAttributes, InputHelper, InputOption, StringBool } from "./types";
 declare function username(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function password(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function otp(...opts: Partial<InputOption<string>>[]): FnInput<string>;
@@ -11,11 +11,13 @@ declare function boolean(...opts: Partial<InputOption<StringBool>>[]): FnInput<S
 declare function objectId(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function newForm<INPUT>(opts: FormArgs<INPUT>): FormHelper<INPUT>;
 declare function extractInputAttributes<INPUT>(formHelper: FormHelper<INPUT>, name: keyof INPUT): HTMLInputAttributes;
+declare function extractInputHelper<INPUT, P extends keyof INPUT>(form: FormHelper<INPUT>, name: keyof INPUT): InputHelper<INPUT[P]>;
 declare function extractForm<INPUT>(form: FormData, helper: FormHelper<INPUT>, ...throws: boolean[]): INPUT;
 declare function newInitValue<INPUT>(helper: FormHelper<INPUT>): INPUT;
 declare const _default: {
     extractForm: typeof extractForm;
     extractInputAttributes: typeof extractInputAttributes;
+    extractInputHelper: typeof extractInputHelper;
     newForm: typeof newForm;
     newInitValue: typeof newInitValue;
     username: typeof username;
