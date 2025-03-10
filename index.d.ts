@@ -8,7 +8,4 @@ import fnParams from "./func/params";
 import fnPbkdf2 from "./func/pbkdf2";
 import fnReflect from "./func/reflect";
 export type * from "./func/types";
-export type * from "./func/action/types";
-export type * from "./func/graphql/types";
-export type * from "./func/input/types";
 export { fnCss, fnCookies, fnEnv, fnReflect, fnGraphql, fnPbkdf2, fnParams, fnInput, fnAction };

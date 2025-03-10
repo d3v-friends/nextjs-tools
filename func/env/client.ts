@@ -1,5 +1,5 @@
 "use client";
-import {string as fnString, number as fnNumber, boolean as fnBoolean} from "func/env/env";
+import {string as fnString, number as fnNumber, boolean as fnBoolean} from "./env";
 
 export function string(key: string, ...defaults: string[]): string {
 	return fnString("NEXT_PUBLIC", key, ...defaults);

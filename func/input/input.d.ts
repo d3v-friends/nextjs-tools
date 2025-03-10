@@ -1,4 +1,4 @@
-import { FnInput, FormArgs, FormHelper, HTMLInputAttributes, InputOption, StringBool } from "func/input/types";
+import { FnInput, FormArgs, FormHelper, HTMLInputAttributes, InputOption, StringBool } from "./types";
 declare function username(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function password(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function otp(...opts: Partial<InputOption<string>>[]): FnInput<string>;
