@@ -7,4 +7,5 @@ import fnInput from "./input";
 import fnParams from "./params";
 import fnPbkdf2 from "./pbkdf2";
 import fnReflect from "./reflect";
+export type * from "./types";
 export { fnCss, fnCookies, fnEnv, fnReflect, fnGraphql, fnPbkdf2, fnParams, fnInput, fnAction };

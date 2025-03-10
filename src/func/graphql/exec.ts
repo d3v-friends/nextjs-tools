@@ -1,12 +1,12 @@
 "use server";
 import {fnCookies, fnEnv} from "..";
-import {errEmptyGraphqlResponse, errUnexpectedGraphqlError, TypedDocumentString} from "./types";
+import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError} from "./types";
 
 const envHost = "GQL_HOST";
 
 type ExecArgs<TResult, TVariables> = {
 	header?: Record<string, string>;
-	query: TypedDocumentString<TResult, TVariables>;
+	query: Document<TResult, TVariables>;
 	variables?: TVariables;
 };
 
