@@ -2,7 +2,8 @@
   "name": "nextjs-tools",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
-    "build": "rm -rf ./dist && tsc -p tsconfig.export.json && git add dist"
+    "export": "rm -rf ./dist && tsc -p tsconfig.export.json && git add dist",
+    "tag": "sh ./script/tag.sh $(cat ./version)"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
