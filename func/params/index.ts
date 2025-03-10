@@ -1,5 +1,5 @@
-import parse from "func/params/parse";
-import update from "func/params/update";
+import parse from "./parse";
+import update from "./update";
 
 export default {
 	parse,

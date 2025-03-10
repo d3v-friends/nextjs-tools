@@ -1,5 +1,5 @@
 import {fnReflect} from "index";
-import {Nullable} from "types";
+import {Nullable} from "../types";
 import {
 	errInvalidFormValueRegexp,
 	errInvalidFormValueType,
@@ -219,13 +219,6 @@ function extractInputAttributes<INPUT>(formHelper: FormHelper<INPUT>, name: keyo
 	};
 }
 
-function extractInputHelper<INPUT, P extends keyof INPUT>(
-	form: FormHelper<INPUT>,
-	name: keyof INPUT
-): InputHelper<INPUT[P]> {
-	return form[name] as InputHelper<INPUT[P]>;
-}
-
 function extractInput<T>(form: FormData, input: InputHelper<T>, ...throws: boolean[]): Nullable<T> {
 	const entry = form.get(input.name);
 	if (!entry || typeof entry !== "string") return input.nullable ? null : input.defaultValue;
@@ -276,7 +269,6 @@ function newInitValue<INPUT>(helper: FormHelper<INPUT>): INPUT {
 export default {
 	extractForm,
 	extractInputAttributes,
-	extractInputHelper,
 	newForm,
 	newInitValue,
 	username,

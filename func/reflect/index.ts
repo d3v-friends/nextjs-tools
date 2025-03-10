@@ -1,3 +1,3 @@
-import merge from "func/reflect/merge";
+import merge from "./merge";
 
 export default {merge};

@@ -1,6 +1,6 @@
 "use server";
-import exec from "func/graphql/exec";
-import {Document} from "func/graphql/types";
+import exec from "./exec";
+import {Document} from "./types";
 
 export default async function <TResult, TVariables>(
 	query: Document<TResult, TVariables>,

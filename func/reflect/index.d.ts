@@ -1,4 +1,4 @@
-import merge from "func/reflect/merge";
+import merge from "./merge";
 declare const _default: {
     merge: typeof merge;
 };

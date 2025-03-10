@@ -1,6 +1,7 @@
 "use server";
-import {fnCookies, fnEnv} from "index";
-import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError} from "func/graphql/types";
+import fnCookies from "../cookies";
+import fnEnv from "../env";
+import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError} from "./types";
 
 const envHost = "GQL_HOST";
 

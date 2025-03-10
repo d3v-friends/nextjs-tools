@@ -1,6 +1,6 @@
-import fnInput from "func/input";
-import {FormHelper} from "func/input/types";
-import {ServerActionHandler, State} from "func/action/types";
+import fnInput from "../input";
+import {FormHelper} from "../input/types";
+import {ServerActionHandler, State} from "../action/types";
 
 export default async function <INPUT, RESPONSE>(
 	form: FormData,

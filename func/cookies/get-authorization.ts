@@ -1,6 +1,6 @@
 "use server";
 import {cookies} from "next/headers";
-import {httpHeaderAuthorization} from "func/cookies/types";
+import {httpHeaderAuthorization} from "./types";
 
 export default async function (): Promise<string> {
 	const c = await cookies();

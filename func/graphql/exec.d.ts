@@ -1,4 +1,4 @@
-import { Document } from "func/graphql/types";
+import { Document } from "./types";
 type ExecArgs<TResult, TVariables> = {
     header?: Record<string, string>;
     query: Document<TResult, TVariables>;

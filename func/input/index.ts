@@ -1,3 +1,3 @@
-import fnInput from "func/input/input";
+import fnInput from "./input";
 
 export default fnInput;

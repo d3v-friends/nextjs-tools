@@ -1,6 +1,6 @@
 "use server";
 
-import {string as fnString, number as fnNumber, boolean as fnBoolean} from "func/env/env";
+import {string as fnString, number as fnNumber, boolean as fnBoolean} from "./env";
 
 export async function string(key: string, ...defaults: string[]): Promise<string> {
 	return fnString("", key, ...defaults);

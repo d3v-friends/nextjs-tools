@@ -1,6 +1,3 @@
-/* -------------------------------------------------------------------------------------------------- */
-// ServerAction
-
 export type State<INPUT, RESPONSE> = {
 	input: INPUT;
 	response?: RESPONSE;

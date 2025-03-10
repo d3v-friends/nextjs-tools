@@ -1,6 +1,6 @@
 "use server";
 
-import {NextPageSearchParams} from "types";
+import {NextPageSearchParams} from "../types";
 
 export default async function <T extends Record<string, string | string[] | number | null>>(
 	params: Promise<NextPageSearchParams>,

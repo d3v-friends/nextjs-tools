@@ -1,13 +1,13 @@
 "use server";
 import {headers} from "next/headers";
-import getAuthorization from "func/cookies/get-authorization";
+import getAuthorization from "./get-authorization";
 import {
 	contentTypeApplicationJson,
 	httpHeaderAuthorization,
 	httpHeaderContentType,
 	httpHeaderUserAgent,
 	httpXForwardedHost,
-} from "func/cookies/types";
+} from "./types";
 
 export default async function (header?: Record<string, string>): Promise<Record<string, string>> {
 	header = header || {};

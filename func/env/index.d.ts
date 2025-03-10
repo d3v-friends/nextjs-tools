@@ -1,5 +1,5 @@
-import { string as svString, number as svNumber, boolean as svBoolean } from "func/env/server";
-import { string as clString, number as clNumber, boolean as clBoolean } from "func/env/client";
+import { string as svString, number as svNumber, boolean as svBoolean } from "./server";
+import { string as clString, number as clNumber, boolean as clBoolean } from "./client";
 declare const _default: {
     server: {
         string: typeof svString;
