@@ -21,6 +21,8 @@ export default function ({}: NextPageProps) {
 				{...fnInput.extractInputAttributes(sampleForm, "boolean")}
 				defaultValue={boolean}
 			/>
+
+			<input {...fnInput.extractInputHelper(sampleForm, "password")}/>
 			<button
 				type="submit"
 				disabled={pending}>
