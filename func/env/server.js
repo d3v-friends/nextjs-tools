@@ -1,0 +1,12 @@
+"use server";
+import { string as fnString, number as fnNumber, boolean as fnBoolean } from "func/env/env";
+export async function string(key, ...defaults) {
+    return fnString("", key, ...defaults);
+}
+export async function number(key, ...defaults) {
+    return fnNumber("", key, ...defaults);
+}
+export async function boolean(key, ...defaults) {
+    return fnBoolean("", key, ...defaults);
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VydmVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic2VydmVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLFlBQVksQ0FBQztBQUViLE9BQU8sRUFBQyxNQUFNLElBQUksUUFBUSxFQUFFLE1BQU0sSUFBSSxRQUFRLEVBQUUsT0FBTyxJQUFJLFNBQVMsRUFBQyxNQUFNLGNBQWMsQ0FBQztBQUUxRixNQUFNLENBQUMsS0FBSyxVQUFVLE1BQU0sQ0FBQyxHQUFXLEVBQUUsR0FBRyxRQUFrQjtJQUM5RCxPQUFPLFFBQVEsQ0FBQyxFQUFFLEVBQUUsR0FBRyxFQUFFLEdBQUcsUUFBUSxDQUFDLENBQUM7QUFDdkMsQ0FBQztBQUVELE1BQU0sQ0FBQyxLQUFLLFVBQVUsTUFBTSxDQUFDLEdBQVcsRUFBRSxHQUFHLFFBQWtCO0lBQzlELE9BQU8sUUFBUSxDQUFDLEVBQUUsRUFBRSxHQUFHLEVBQUUsR0FBRyxRQUFRLENBQUMsQ0FBQztBQUN2QyxDQUFDO0FBRUQsTUFBTSxDQUFDLEtBQUssVUFBVSxPQUFPLENBQUMsR0FBVyxFQUFFLEdBQUcsUUFBbUI7SUFDaEUsT0FBTyxTQUFTLENBQUMsRUFBRSxFQUFFLEdBQUcsRUFBRSxHQUFHLFFBQVEsQ0FBQyxDQUFDO0FBQ3hDLENBQUMifQ==

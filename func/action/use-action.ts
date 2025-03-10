@@ -1,0 +1,25 @@
+"use client";
+
+import {useActionState} from "react";
+import fnInput from "func/input";
+import {FormHelper} from "func/input/types";
+import {ServerAction, State} from "func/action/types";
+
+export default function <INPUT, RESPONSE>(
+	handler: ServerAction<INPUT, RESPONSE>,
+	formHelper: FormHelper<INPUT>
+): {
+	state: Awaited<State<INPUT, RESPONSE>>;
+	action: (payload: FormData) => void;
+	pending: boolean;
+} {
+	const [state, action, pending] = useActionState<State<INPUT, RESPONSE>, FormData>(handler, {
+		input: fnInput.newInitValue(formHelper),
+	});
+
+	return {
+		state,
+		action,
+		pending,
+	};
+}

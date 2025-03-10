@@ -1,0 +1,3 @@
+import merge from "func/reflect/merge";
+export default { merge };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEtBQUssTUFBTSxvQkFBb0IsQ0FBQztBQUV2QyxlQUFlLEVBQUMsS0FBSyxFQUFDLENBQUMifQ==

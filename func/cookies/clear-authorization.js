@@ -1,0 +1,8 @@
+"use server";
+import { cookies } from "next/headers";
+import { httpHeaderAuthorization } from "func/cookies/types";
+export default async function () {
+    const c = await cookies();
+    c.delete(httpHeaderAuthorization);
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2xlYXItYXV0aG9yaXphdGlvbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImNsZWFyLWF1dGhvcml6YXRpb24udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDO0FBQ2IsT0FBTyxFQUFDLE9BQU8sRUFBQyxNQUFNLGNBQWMsQ0FBQztBQUNyQyxPQUFPLEVBQUMsdUJBQXVCLEVBQUMsTUFBTSxvQkFBb0IsQ0FBQztBQUUzRCxNQUFNLENBQUMsT0FBTyxDQUFDLEtBQUs7SUFDbkIsTUFBTSxDQUFDLEdBQUcsTUFBTSxPQUFPLEVBQUUsQ0FBQztJQUMxQixDQUFDLENBQUMsTUFBTSxDQUFDLHVCQUF1QixDQUFDLENBQUM7QUFDbkMsQ0FBQyJ9

@@ -1,0 +1,3 @@
+import fnInput from "func/input/input";
+export default fnInput;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLE9BQU8sTUFBTSxrQkFBa0IsQ0FBQztBQUV2QyxlQUFlLE9BQU8sQ0FBQyJ9

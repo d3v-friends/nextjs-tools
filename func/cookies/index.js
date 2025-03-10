@@ -1,0 +1,8 @@
+import getAuthorization from "./get-authorization";
+import setAuthorization from "./set-authorization";
+import clearAuthorization from "./clear-authorization";
+import newHeader from "./new-header";
+export default {
+    getAuthorization, setAuthorization, newHeader, clearAuthorization,
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLGdCQUFnQixNQUFNLHFCQUFxQixDQUFDO0FBQ25ELE9BQU8sZ0JBQWdCLE1BQU0scUJBQXFCLENBQUM7QUFDbkQsT0FBTyxrQkFBa0IsTUFBTSx1QkFBdUIsQ0FBQztBQUN2RCxPQUFPLFNBQVMsTUFBTSxjQUFjLENBQUM7QUFFckMsZUFBZTtJQUNkLGdCQUFnQixFQUFFLGdCQUFnQixFQUFFLFNBQVMsRUFBRSxrQkFBa0I7Q0FDakUsQ0FBQyJ9

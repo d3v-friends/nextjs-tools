@@ -2,11 +2,11 @@
   "name": "nextjs-tools",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
-    "export": "rm -rf ./dist && tsc -p tsconfig.export.json && git add dist",
+    "export": "sh ./script/build.sh",
     "tag": "sh ./script/tag.sh $(cat ./version)"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/d3v-friends/nextjs-tools"
