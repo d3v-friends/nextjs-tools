@@ -4,7 +4,7 @@ declare function password(...opts: Partial<InputOption<string>>[]): FnInput<stri
 declare function otp(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function ip(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function lowerSnakeCase(...opts: Partial<InputOption<string>>[]): FnInput<string>;
-declare function port(...opts: Partial<InputOption<string>>[]): FnInput<string>;
+declare function port(...opts: Partial<InputOption<number>>[]): FnInput<number>;
 declare function string(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function number(...opts: Partial<InputOption<number>>[]): FnInput<number>;
 declare function boolean(...opts: Partial<InputOption<StringBool>>[]): FnInput<StringBool>;

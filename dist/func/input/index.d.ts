@@ -3,7 +3,7 @@ declare const _default: {
         username: (...opts: Partial<import("./types").InputOption<string>>[]) => import("./types").FnInput<string>;
         password: (...opts: Partial<import("./types").InputOption<string>>[]) => import("./types").FnInput<string>;
         ip: (...opts: Partial<import("./types").InputOption<string>>[]) => import("./types").FnInput<string>;
-        port: (...opts: Partial<import("./types").InputOption<string>>[]) => import("./types").FnInput<string>;
+        port: (...opts: Partial<import("./types").InputOption<number>>[]) => import("./types").FnInput<number>;
         otp: (...opts: Partial<import("./types").InputOption<string>>[]) => import("./types").FnInput<string>;
         string: (...opts: Partial<import("./types").InputOption<string>>[]) => import("./types").FnInput<string>;
         number: (...opts: Partial<import("./types").InputOption<number>>[]) => import("./types").FnInput<number>;
