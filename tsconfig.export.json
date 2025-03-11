@@ -1,27 +1,15 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "lib": [
-      "esnext"
-    ],
-    "baseUrl": ".",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true,
+    "noEmit": false,
+    "target": "es6",
+    "outDir": "./dist",
     "declaration": true,
-    "inlineSourceMap": true,
-    "removeComments": true,
-    "paths": {}
+    "inlineSourceMap": true
   },
   "include": [
-    "./func/*",
-    "./index.ts",
+    "./src/func/*",
+    "./src/index.ts"
   ],
   "exclude": [
     "node_modules"

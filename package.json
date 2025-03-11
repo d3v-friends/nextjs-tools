@@ -5,17 +5,17 @@
     "export": "sh ./script/build.sh",
     "tag": "sh ./script/tag.sh $(cat ./version)"
   },
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/d3v-friends/nextjs-tools"
   },
   "dependencies": {
-    "pbkdf2": "3.1.2",
-    "@types/pbkdf2": "3.1.2"
+    "pbkdf2": "3.1.2"
   },
   "devDependencies": {
+    "@types/pbkdf2": "3.1.2",
     "next": "15.2.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",

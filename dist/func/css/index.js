@@ -1,0 +1,5 @@
+import concat from "../css/concat";
+export default {
+    concat,
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvZnVuYy9jc3MvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxNQUFNLE1BQU0sa0JBQWtCLENBQUM7QUFFdEMsZUFBZTtJQUNkLE1BQU07Q0FDTixDQUFDIn0=

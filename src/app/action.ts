@@ -1,6 +1,6 @@
 "use server";
 import {sampleForm} from "@app/form";
-import {fnAction} from "index";
+import {fnAction} from "src/index";
 
 export default async (_: any, form: FormData) =>
 	fnAction.new(form, sampleForm, async ({username, password, boolean}) => {

@@ -26,6 +26,18 @@
     "paths": {
       "@app/*": [
         "./src/app/*"
+      ],
+      "@src/*": [
+        "./src/*"
+      ],
+      "@src": [
+        "./src"
+      ],
+      "@func/*": [
+        "./src/func/*"
+      ],
+      "@func": [
+        "./src/func"
       ]
     }
   },

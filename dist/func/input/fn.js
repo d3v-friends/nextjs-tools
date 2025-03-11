@@ -1,0 +1,60 @@
+import { errInvalidFormValueRegexp, errInvalidFormValueType, errNotFoundInputHelper, } from "../input/types";
+function inputAttributes(formHelper, name) {
+    const i = formHelper[name];
+    return {
+        name: i.name,
+        defaultValue: String(i.defaultValue),
+        type: i.type,
+        autoComplete: i.autoComplete,
+        inputMode: i.inputMode,
+    };
+}
+function formField(form, input, ...throws) {
+    const entry = form.get(input.name);
+    if (!entry || typeof entry !== "string")
+        return input.nullable ? null : input.defaultValue;
+    if (entry === "")
+        return input.nullable ? null : input.defaultValue;
+    const t = throws.length === 1 ? throws[0] : false;
+    const valid = new RegExp(input.regexp).test(entry);
+    if (!valid && t)
+        throw new Error(`${errInvalidFormValueRegexp}: name=${input.name}, value=${entry}, regexp=${input.regexp}`);
+    switch (typeof input.defaultValue) {
+        case "string":
+            return entry;
+        case "number":
+            if (Number.isNaN(entry)) {
+                if (t)
+                    throw new Error(`${errInvalidFormValueType}: name=${input.name}, value=${entry}, type=number`);
+                return input.defaultValue;
+            }
+            return Number(entry);
+        default:
+            throw new Error(`${errNotFoundInputHelper}: name=${input.name}, value=${entry}, input_default_value_type=${typeof input.defaultValue}`);
+    }
+}
+function formFieldAll(form, helper, ...throws) {
+    const res = {};
+    for (const name in helper) {
+        res[name] = formField(form, helper[name], ...throws);
+    }
+    return res;
+}
+function initValue(helper) {
+    const res = {};
+    for (const name in helper) {
+        if (!helper[name].defaultValue && helper[name].nullable) {
+            res[name] = null;
+            continue;
+        }
+        res[name] = helper[name].defaultValue;
+    }
+    return res;
+}
+export default {
+    formField,
+    formFieldAll,
+    inputAttributes,
+    initValue,
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZm4uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvZnVuYy9pbnB1dC9mbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQ04seUJBQXlCLEVBQ3pCLHVCQUF1QixFQUN2QixzQkFBc0IsR0FJdEIsTUFBTSxtQkFBbUIsQ0FBQztBQUczQixTQUFTLGVBQWUsQ0FBUSxVQUE2QixFQUFFLElBQWlCO0lBQy9FLE1BQU0sQ0FBQyxHQUFHLFVBQVUsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUMzQixPQUFPO1FBQ04sSUFBSSxFQUFFLENBQUMsQ0FBQyxJQUFJO1FBQ1osWUFBWSxFQUFFLE1BQU0sQ0FBQyxDQUFDLENBQUMsWUFBWSxDQUFDO1FBQ3BDLElBQUksRUFBRSxDQUFDLENBQUMsSUFBSTtRQUNaLFlBQVksRUFBRSxDQUFDLENBQUMsWUFBWTtRQUM1QixTQUFTLEVBQUUsQ0FBQyxDQUFDLFNBQVM7S0FDdEIsQ0FBQztBQUNILENBQUM7QUFFRCxTQUFTLFNBQVMsQ0FBSSxJQUFjLEVBQUUsS0FBcUIsRUFBRSxHQUFHLE1BQWlCO0lBQ2hGLE1BQU0sS0FBSyxHQUFHLElBQUksQ0FBQyxHQUFHLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ25DLElBQUksQ0FBQyxLQUFLLElBQUksT0FBTyxLQUFLLEtBQUssUUFBUTtRQUFFLE9BQU8sS0FBSyxDQUFDLFFBQVEsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUMsWUFBWSxDQUFDO0lBQzNGLElBQUksS0FBSyxLQUFLLEVBQUU7UUFBRSxPQUFPLEtBQUssQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsS0FBSyxDQUFDLFlBQVksQ0FBQztJQUVwRSxNQUFNLENBQUMsR0FBRyxNQUFNLENBQUMsTUFBTSxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUM7SUFDbEQsTUFBTSxLQUFLLEdBQUcsSUFBSSxNQUFNLENBQUMsS0FBSyxDQUFDLE1BQU0sQ0FBQyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUVuRCxJQUFJLENBQUMsS0FBSyxJQUFJLENBQUM7UUFDZCxNQUFNLElBQUksS0FBSyxDQUFDLEdBQUcseUJBQXlCLFVBQVUsS0FBSyxDQUFDLElBQUksV0FBVyxLQUFLLFlBQVksS0FBSyxDQUFDLE1BQU0sRUFBRSxDQUFDLENBQUM7SUFFN0csUUFBUSxPQUFPLEtBQUssQ0FBQyxZQUFZLEVBQUUsQ0FBQztRQUNuQyxLQUFLLFFBQVE7WUFDWixPQUFPLEtBQVUsQ0FBQztRQUNuQixLQUFLLFFBQVE7WUFDWixJQUFJLE1BQU0sQ0FBQyxLQUFLLENBQUMsS0FBSyxDQUFDLEVBQUUsQ0FBQztnQkFDekIsSUFBSSxDQUFDO29CQUFFLE1BQU0sSUFBSSxLQUFLLENBQUMsR0FBRyx1QkFBdUIsVUFBVSxLQUFLLENBQUMsSUFBSSxXQUFXLEtBQUssZUFBZSxDQUFDLENBQUM7Z0JBQ3RHLE9BQU8sS0FBSyxDQUFDLFlBQWlCLENBQUM7WUFDaEMsQ0FBQztZQUNELE9BQU8sTUFBTSxDQUFDLEtBQUssQ0FBTSxDQUFDO1FBQzNCO1lBQ0MsTUFBTSxJQUFJLEtBQUssQ0FDZCxHQUFHLHNCQUFzQixVQUFVLEtBQUssQ0FBQyxJQUFJLFdBQVcsS0FBSyw4QkFBOEIsT0FBTyxLQUFLLENBQUMsWUFBWSxFQUFFLENBQ3RILENBQUM7SUFDSixDQUFDO0FBQ0YsQ0FBQztBQUVELFNBQVMsWUFBWSxDQUFRLElBQWMsRUFBRSxNQUF5QixFQUFFLEdBQUcsTUFBaUI7SUFDM0YsTUFBTSxHQUFHLEdBQVEsRUFBRSxDQUFDO0lBQ3BCLEtBQUssTUFBTSxJQUFJLElBQUksTUFBTSxFQUFFLENBQUM7UUFDM0IsR0FBRyxDQUFDLElBQUksQ0FBQyxHQUFHLFNBQVMsQ0FBQyxJQUFJLEVBQUUsTUFBTSxDQUFDLElBQUksQ0FBQyxFQUFFLEdBQUcsTUFBTSxDQUFDLENBQUM7SUFDdEQsQ0FBQztJQUNELE9BQU8sR0FBWSxDQUFDO0FBQ3JCLENBQUM7QUFFRCxTQUFTLFNBQVMsQ0FBUSxNQUF5QjtJQUNsRCxNQUFNLEdBQUcsR0FBUSxFQUFFLENBQUM7SUFDcEIsS0FBSyxNQUFNLElBQUksSUFBSSxNQUFNLEVBQUUsQ0FBQztRQUMzQixJQUFJLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxDQUFDLFlBQVksSUFBSSxNQUFNLENBQUMsSUFBSSxDQUFDLENBQUMsUUFBUSxFQUFFLENBQUM7WUFDekQsR0FBRyxDQUFDLElBQUksQ0FBQyxHQUFHLElBQUksQ0FBQztZQUNqQixTQUFTO1FBQ1YsQ0FBQztRQUNELEdBQUcsQ0FBQyxJQUFJLENBQUMsR0FBRyxNQUFNLENBQUMsSUFBSSxDQUFDLENBQUMsWUFBWSxDQUFDO0lBQ3ZDLENBQUM7SUFDRCxPQUFPLEdBQVksQ0FBQztBQUNyQixDQUFDO0FBRUQsZUFBZTtJQUNkLFNBQVM7SUFDVCxZQUFZO0lBQ1osZUFBZTtJQUNmLFNBQVM7Q0FDVCxDQUFDIn0=

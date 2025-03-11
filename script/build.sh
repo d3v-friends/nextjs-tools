@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-rm ./**/*.js || true;
-rm ./**/*.d.ts || true;
+rm -f ./dist;
 
 tsc -p tsconfig.export.json;
+tsc-alias -p tsconfig.export.json;
 git add .;

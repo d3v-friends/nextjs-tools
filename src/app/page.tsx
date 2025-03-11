@@ -1,7 +1,7 @@
 "use client";
 import sampleAction from "@app/action";
 import {sampleForm} from "@app/form";
-import {fnAction, fnInput, NextPageProps} from "index";
+import {fnAction, fnInput, NextPageProps} from "src/index";
 
 export default function ({}: NextPageProps) {
 	const {pending, action, state} = fnAction.use(sampleAction, sampleForm);
