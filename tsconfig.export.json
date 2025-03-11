@@ -2,7 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
-    "target": "es6",
     "outDir": "./dist",
     "declaration": true,
     "inlineSourceMap": true

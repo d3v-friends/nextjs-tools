@@ -1,42 +1,31 @@
 "use server";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-export default function (params, initParams) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const p = yield params;
-        const res = {};
-        for (const key in initParams) {
-            if (!p.hasOwnProperty(key)) {
-                res[key] = initParams[key];
-                continue;
-            }
-            if (p[key] instanceof Array) {
-                res[key] = p[key] || initParams[key];
-                continue;
-            }
-            switch (typeof initParams[key]) {
-                case "number":
-                    res[key] = Number.isNaN(p[key]) ? 0 : Number(p[key]);
-                    break;
-                case "string":
-                    res[key] = p[key];
-                    break;
-                case "undefined":
-                    res[key] = null;
-                    break;
-                default:
-                    res[key] = initParams[key];
-                    break;
-            }
+export default async function (params, initParams) {
+    const p = await params;
+    const res = {};
+    for (const key in initParams) {
+        if (!p.hasOwnProperty(key)) {
+            res[key] = initParams[key];
+            continue;
         }
-        return res;
-    });
+        if (p[key] instanceof Array) {
+            res[key] = p[key] || initParams[key];
+            continue;
+        }
+        switch (typeof initParams[key]) {
+            case "number":
+                res[key] = Number.isNaN(p[key]) ? 0 : Number(p[key]);
+                break;
+            case "string":
+                res[key] = p[key];
+                break;
+            case "undefined":
+                res[key] = null;
+                break;
+            default:
+                res[key] = initParams[key];
+                break;
+        }
+    }
+    return res;
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGFyc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvZnVuYy9wYXJhbXMvcGFyc2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDOzs7Ozs7Ozs7O0FBSWIsTUFBTSxDQUFDLE9BQU8sV0FDYixNQUFxQyxFQUNyQyxVQUFhOztRQUViLE1BQU0sQ0FBQyxHQUFHLE1BQU0sTUFBTSxDQUFDO1FBQ3ZCLE1BQU0sR0FBRyxHQUFRLEVBQUUsQ0FBQztRQUNwQixLQUFLLE1BQU0sR0FBRyxJQUFJLFVBQVUsRUFBRSxDQUFDO1lBQzlCLElBQUksQ0FBQyxDQUFDLENBQUMsY0FBYyxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUM7Z0JBQzVCLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxVQUFVLENBQUMsR0FBRyxDQUFDLENBQUM7Z0JBQzNCLFNBQVM7WUFDVixDQUFDO1lBRUQsSUFBSSxDQUFDLENBQUMsR0FBRyxDQUFDLFlBQVksS0FBSyxFQUFFLENBQUM7Z0JBQzdCLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLENBQUMsR0FBRyxDQUFDLElBQUksVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDO2dCQUNyQyxTQUFTO1lBQ1YsQ0FBQztZQUVELFFBQVEsT0FBTyxVQUFVLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQztnQkFDaEMsS0FBSyxRQUFRO29CQUNaLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQztvQkFDckQsTUFBTTtnQkFDUCxLQUFLLFFBQVE7b0JBQ1osR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQztvQkFDbEIsTUFBTTtnQkFDUCxLQUFLLFdBQVc7b0JBQ2YsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQztvQkFDaEIsTUFBTTtnQkFDUDtvQkFDQyxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDO29CQUMzQixNQUFNO1lBQ1IsQ0FBQztRQUNGLENBQUM7UUFFRCxPQUFPLEdBQVEsQ0FBQztJQUNqQixDQUFDO0NBQUEifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGFyc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvZnVuYy9wYXJhbXMvcGFyc2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDO0FBSWIsTUFBTSxDQUFDLE9BQU8sQ0FBQyxLQUFLLFdBQ25CLE1BQXFDLEVBQ3JDLFVBQWE7SUFFYixNQUFNLENBQUMsR0FBRyxNQUFNLE1BQU0sQ0FBQztJQUN2QixNQUFNLEdBQUcsR0FBUSxFQUFFLENBQUM7SUFDcEIsS0FBSyxNQUFNLEdBQUcsSUFBSSxVQUFVLEVBQUUsQ0FBQztRQUM5QixJQUFJLENBQUMsQ0FBQyxDQUFDLGNBQWMsQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDO1lBQzVCLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxVQUFVLENBQUMsR0FBRyxDQUFDLENBQUM7WUFDM0IsU0FBUztRQUNWLENBQUM7UUFFRCxJQUFJLENBQUMsQ0FBQyxHQUFHLENBQUMsWUFBWSxLQUFLLEVBQUUsQ0FBQztZQUM3QixHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxJQUFJLFVBQVUsQ0FBQyxHQUFHLENBQUMsQ0FBQztZQUNyQyxTQUFTO1FBQ1YsQ0FBQztRQUVELFFBQVEsT0FBTyxVQUFVLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQztZQUNoQyxLQUFLLFFBQVE7Z0JBQ1osR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLE1BQU0sQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO2dCQUNyRCxNQUFNO1lBQ1AsS0FBSyxRQUFRO2dCQUNaLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUM7Z0JBQ2xCLE1BQU07WUFDUCxLQUFLLFdBQVc7Z0JBQ2YsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQztnQkFDaEIsTUFBTTtZQUNQO2dCQUNDLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxVQUFVLENBQUMsR0FBRyxDQUFDLENBQUM7Z0JBQzNCLE1BQU07UUFDUixDQUFDO0lBQ0YsQ0FBQztJQUVELE9BQU8sR0FBUSxDQUFDO0FBQ2pCLENBQUMifQ==
