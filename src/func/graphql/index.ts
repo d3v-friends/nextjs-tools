@@ -1,6 +1,6 @@
-import exec from "src/func/graphql/exec";
-import inline from "src/func/graphql/inline";
-import query from "src/func/graphql/query";
+import exec from "@func/graphql/exec";
+import inline from "@func/graphql/inline";
+import query from "@func/graphql/query";
 
 export default {
 	exec,

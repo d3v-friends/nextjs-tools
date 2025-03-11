@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import exec from "src/func/graphql/exec";
+import exec from "../graphql/exec";
 export default function (query_1, header_1) {
     return __awaiter(this, arguments, void 0, function* (query, header, ...[variables]) {
         return exec({
@@ -18,4 +18,4 @@ export default function (query_1, header_1) {
         });
     });
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5saW5lLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2Z1bmMvZ3JhcGhxbC9pbmxpbmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDOzs7Ozs7Ozs7O0FBQ2IsT0FBTyxJQUFJLE1BQU0sdUJBQXVCLENBQUM7QUFHekMsTUFBTSxDQUFDLE9BQU87eURBQ2IsS0FBb0MsRUFDcEMsTUFBK0IsRUFDL0IsR0FBRyxDQUFDLFNBQVMsQ0FBK0Q7UUFFNUUsT0FBTyxJQUFJLENBQUM7WUFDWCxLQUFLO1lBQ0wsTUFBTTtZQUNOLFNBQVM7U0FDVCxDQUFDLENBQUM7SUFDSixDQUFDO0NBQUEifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5saW5lLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2Z1bmMvZ3JhcGhxbC9pbmxpbmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDOzs7Ozs7Ozs7O0FBQ2IsT0FBTyxJQUFJLE1BQU0sb0JBQW9CLENBQUM7QUFHdEMsTUFBTSxDQUFDLE9BQU87eURBQ2IsS0FBb0MsRUFDcEMsTUFBK0IsRUFDL0IsR0FBRyxDQUFDLFNBQVMsQ0FBK0Q7UUFFNUUsT0FBTyxJQUFJLENBQUM7WUFDWCxLQUFLO1lBQ0wsTUFBTTtZQUNOLFNBQVM7U0FDVCxDQUFDLENBQUM7SUFDSixDQUFDO0NBQUEifQ==

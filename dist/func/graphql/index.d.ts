@@ -1,6 +1,6 @@
-import exec from "src/func/graphql/exec";
-import inline from "src/func/graphql/inline";
-import query from "src/func/graphql/query";
+import exec from "../graphql/exec";
+import inline from "../graphql/inline";
+import query from "../graphql/query";
 declare const _default: {
     exec: typeof exec;
     inline: typeof inline;

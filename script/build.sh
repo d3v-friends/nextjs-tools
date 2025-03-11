@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-rm -f ./dist;
+rm -rf ./dist;
 
 tsc -p tsconfig.export.json;
 tsc-alias -p tsconfig.export.json;
