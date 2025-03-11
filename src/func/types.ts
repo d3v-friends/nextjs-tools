@@ -10,3 +10,6 @@ export type NextPageProps = Readonly<{
 export type NextPageSearchParams = Record<string, string | string[] | undefined>;
 export type NextPageParams = {slug: string | string[]};
 export type Nullable<T> = T | null | undefined;
+export type ArrayElement<ArrayType extends readonly unknown[]> = ArrayType extends readonly (infer ElementType)[]
+	? ElementType
+	: never;
