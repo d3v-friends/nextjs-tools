@@ -104,14 +104,14 @@ function lowerSnakeCase(...opts: Partial<InputOption<string>>[]): FnInput<string
 	};
 }
 
-function port(...opts: Partial<InputOption<string>>[]): FnInput<string> {
+function port(...opts: Partial<InputOption<number>>[]): FnInput<number> {
 	return (name) => {
 		return mergeOpts(
 			{
 				name,
 				regexp: "^[a-z0-9_]+$",
 				invalidMessage: "포트를 확인하여 주십시오.",
-				defaultValue: "",
+				defaultValue: 0,
 				type: "number",
 				autoComplete: "on",
 				inputMode: "numeric",
