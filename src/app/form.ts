@@ -1,9 +1,10 @@
 import {fnInput} from "src/index";
 
-export const sampleForm = fnInput.newForm({
-	username: fnInput.username(),
-	password: fnInput.password(),
-	boolean: fnInput.boolean({
+export const sampleForm = fnInput.field.form({
+	objectId: fnInput.field.objectId(),
+	username: fnInput.field.username(),
+	password: fnInput.field.password(),
+	boolean: fnInput.field.boolean({
 		nullable: true,
 	}),
 });

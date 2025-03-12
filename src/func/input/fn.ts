@@ -8,8 +8,7 @@ import {
 } from "@func/input/types";
 import {Nullable} from "@func/types";
 
-function inputAttributes<INPUT>(formHelper: FormHelper<INPUT>, name: keyof INPUT): HTMLInputAttributes {
-	const i = formHelper[name];
+function inputAttributes<INPUT>(i: InputHelper<INPUT>): HTMLInputAttributes {
 	return {
 		name: i.name,
 		defaultValue: String(i.defaultValue),
@@ -21,11 +20,14 @@ function inputAttributes<INPUT>(formHelper: FormHelper<INPUT>, name: keyof INPUT
 
 function formField<T>(form: FormData, input: InputHelper<T>, ...throws: boolean[]): Nullable<T> {
 	const entry = form.get(input.name);
-	if (!entry || typeof entry !== "string") return input.nullable ? null : input.defaultValue;
-	if (entry === "") return input.nullable ? null : input.defaultValue;
+	if (!entry && input.nullable) return null;
 
 	const t = throws.length === 1 ? throws[0] : false;
-	const valid = new RegExp(input.regexp).test(entry);
+	if (typeof entry !== "string") {
+		if (input.nullable) return null;
+	}
+
+	const valid = new RegExp(input.regexp).test(entry as string);
 
 	if (!valid && t)
 		throw new Error(`${errInvalidFormValueRegexp}: name=${input.name}, value=${entry}, regexp=${input.regexp}`);

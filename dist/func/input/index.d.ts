@@ -15,7 +15,7 @@ declare const _default: {
     fn: {
         formField: <T>(form: FormData, input: import("./types").InputHelper<T>, ...throws: boolean[]) => import("../types").Nullable<T>;
         formFieldAll: <INPUT>(form: FormData, helper: import("./types").FormHelper<INPUT>, ...throws: boolean[]) => INPUT;
-        inputAttributes: <INPUT>(formHelper: import("./types").FormHelper<INPUT>, name: keyof INPUT) => import("./types").HTMLInputAttributes;
+        inputAttributes: <INPUT>(i: import("./types").InputHelper<INPUT>) => import("./types").HTMLInputAttributes;
         initValue: <INPUT>(helper: import("./types").FormHelper<INPUT>) => INPUT;
     };
 };
