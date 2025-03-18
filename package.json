@@ -1,6 +1,6 @@
 {
   "name": "nextjs-tools",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
     "export": "sh ./script/build.sh",
