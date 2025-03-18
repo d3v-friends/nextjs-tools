@@ -4,5 +4,5 @@ export default function (str: string): string {
 	while (str.includes("  ")) {
 		str = str.replaceAll("  ", " ");
 	}
-	return str;
+	return str.trim();
 }
