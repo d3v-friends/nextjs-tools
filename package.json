@@ -1,9 +1,10 @@
 {
   "name": "nextjs-tools",
+  "version": "0.1.15",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
     "export": "sh ./script/build.sh",
-    "tag": "sh ./script/tag.sh $(cat ./version)"
+    "tag": "sh ./script/tag.sh $(jq \".version\" package.json | tr -d '\"')"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
