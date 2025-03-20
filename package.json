@@ -1,13 +1,13 @@
 {
   "name": "nextjs-tools",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
     "export": "sh ./script/build.sh",
     "tag": "sh ./script/tag.sh $(jq \".version\" package.json | tr -d '\"')"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/d3v-friends/nextjs-tools"

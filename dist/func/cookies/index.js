@@ -1,8 +1,0 @@
-import getAuthorization from "../cookies/get-authorization";
-import setAuthorization from "../cookies/set-authorization";
-import clearAuthorization from "../cookies/clear-authorization";
-import newHeader from "../cookies/new-header";
-export default {
-    getAuthorization, setAuthorization, newHeader, clearAuthorization,
-};
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvZnVuYy9jb29raWVzL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sZ0JBQWdCLE1BQU0saUNBQWlDLENBQUM7QUFDL0QsT0FBTyxnQkFBZ0IsTUFBTSxpQ0FBaUMsQ0FBQztBQUMvRCxPQUFPLGtCQUFrQixNQUFNLG1DQUFtQyxDQUFDO0FBQ25FLE9BQU8sU0FBUyxNQUFNLDBCQUEwQixDQUFDO0FBRWpELGVBQWU7SUFDZCxnQkFBZ0IsRUFBRSxnQkFBZ0IsRUFBRSxTQUFTLEVBQUUsa0JBQWtCO0NBQ2pFLENBQUMifQ==
