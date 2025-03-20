@@ -1,0 +1,18 @@
+import { fnInput } from "..";
+export default async function (form, formHelper, handler) {
+    const res = {
+        input: fnInput.fn.formFieldAll(form, formHelper),
+    };
+    try {
+        res.response = await handler(fnInput.fn.formFieldAll(form, formHelper, true));
+        return res;
+    }
+    catch (e) {
+        if (e instanceof Error)
+            res.error = e;
+        else
+            res.error = new Error(JSON.stringify(e));
+        return res;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmV3LWFjdGlvbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5ldy1hY3Rpb24udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFDLE9BQU8sRUFBQyxNQUFNLElBQUksQ0FBQztBQUkzQixNQUFNLENBQUMsT0FBTyxDQUFDLEtBQUssV0FDbkIsSUFBYyxFQUNkLFVBQTZCLEVBQzdCLE9BQTZDO0lBRTdDLE1BQU0sR0FBRyxHQUEyQjtRQUNuQyxLQUFLLEVBQUUsT0FBTyxDQUFDLEVBQUUsQ0FBQyxZQUFZLENBQUMsSUFBSSxFQUFFLFVBQVUsQ0FBQztLQUNoRCxDQUFDO0lBQ0YsSUFBSSxDQUFDO1FBQ0osR0FBRyxDQUFDLFFBQVEsR0FBRyxNQUFNLE9BQU8sQ0FBQyxPQUFPLENBQUMsRUFBRSxDQUFDLFlBQVksQ0FBQyxJQUFJLEVBQUUsVUFBVSxFQUFFLElBQUksQ0FBQyxDQUFDLENBQUM7UUFDOUUsT0FBTyxHQUFHLENBQUM7SUFDWixDQUFDO0lBQUMsT0FBTyxDQUFDLEVBQUUsQ0FBQztRQUNaLElBQUksQ0FBQyxZQUFZLEtBQUs7WUFBRSxHQUFHLENBQUMsS0FBSyxHQUFHLENBQUMsQ0FBQzs7WUFDakMsR0FBRyxDQUFDLEtBQUssR0FBRyxJQUFJLEtBQUssQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7UUFDOUMsT0FBTyxHQUFHLENBQUM7SUFDWixDQUFDO0FBQ0YsQ0FBQyJ9
