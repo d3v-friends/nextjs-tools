@@ -1,5 +1,5 @@
 import {fnReflect} from "..";
-import {errNotFoundInputHelper, FnInput, FormArgs, FormHelper, InputHelper, InputOption, StringBool} from "./types";
+import {errNotFoundInputHelper, FnInput, FormArgs, FormHelper, InputHelper, InputOption} from "./types";
 
 function mergeOpts<T>(origin: InputHelper<T>, ...opts: Partial<InputHelper<T>>[]): InputHelper<T> {
 	if (opts.length === 0) return origin;
@@ -11,6 +11,7 @@ function username(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 		return mergeOpts(
 			{
 				name,
+				returnValue: "",
 				defaultValue: "",
 				regexp: "^[a-z][a-z|0-9]{3,20}$",
 				invalidMessage: "아이디를 확인하여 주십시오.",
@@ -18,6 +19,8 @@ function username(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 				autoComplete: "on",
 				inputMode: "text",
 				nullable: false,
+				valueType: "string",
+				valueFormat: "text",
 			},
 			...opts
 		);
@@ -29,6 +32,7 @@ function password(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 		return mergeOpts(
 			{
 				name,
+				returnValue: "",
 				defaultValue: "",
 				regexp: "^[a-z0-9A-Z~`!@#$%^&*\(\)\\-_=+\\[{\\]}\\\\\|;:'\",<.>/?]{7,20}$",
 				invalidMessage: "비밀번호를 확인하여 주십시오.",
@@ -36,6 +40,8 @@ function password(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 				autoComplete: "on",
 				inputMode: "text",
 				nullable: false,
+				valueType: "string",
+				valueFormat: "text",
 			},
 			...opts
 		);
@@ -47,6 +53,7 @@ function otp(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 		return mergeOpts(
 			{
 				name,
+				returnValue: "",
 				regexp: "^[0-9]{6}$",
 				invalidMessage: "OTP 를 확인하여 주십시오. (6자리 숫자)",
 				defaultValue: "",
@@ -54,6 +61,8 @@ function otp(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 				autoComplete: "off",
 				inputMode: "numeric",
 				nullable: false,
+				valueType: "string",
+				valueFormat: "text",
 			},
 			...opts
 		);
@@ -65,6 +74,7 @@ function ip(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 		return mergeOpts(
 			{
 				name,
+				returnValue: "",
 				regexp: "\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}\\b",
 				invalidMessage: "아이피를 확인하여 주십시오. (예: 0.0.0.0)",
 				defaultValue: "",
@@ -72,6 +82,8 @@ function ip(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 				autoComplete: "on",
 				inputMode: "text",
 				nullable: false,
+				valueType: "string",
+				valueFormat: "text",
 			},
 			...opts
 		);
@@ -83,6 +95,7 @@ function lowerSnakeCase(...opts: Partial<InputOption<string>>[]): FnInput<string
 		return mergeOpts(
 			{
 				name,
+				returnValue: "",
 				regexp: "^[a-z0-9_]+$",
 				invalidMessage: "입력값을 확인하여 주십시오. (예: lower_snake_case)",
 				defaultValue: "",
@@ -90,6 +103,8 @@ function lowerSnakeCase(...opts: Partial<InputOption<string>>[]): FnInput<string
 				autoComplete: "on",
 				inputMode: "text",
 				nullable: false,
+				valueType: "string",
+				valueFormat: "text",
 			},
 			...opts
 		);
@@ -101,13 +116,16 @@ function port(...opts: Partial<InputOption<number>>[]): FnInput<number> {
 		return mergeOpts(
 			{
 				name,
+				returnValue: 0,
 				regexp: "^[a-z0-9_]+$",
 				invalidMessage: "포트를 확인하여 주십시오.",
-				defaultValue: 0,
+				defaultValue: "0",
 				type: "number",
 				autoComplete: "on",
 				inputMode: "numeric",
 				nullable: false,
+				valueType: "number",
+				valueFormat: "text",
 			},
 			...opts
 		);
@@ -119,6 +137,7 @@ function string(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 		return mergeOpts(
 			{
 				name,
+				returnValue: "",
 				regexp: "",
 				invalidMessage: "",
 				defaultValue: "",
@@ -126,6 +145,8 @@ function string(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 				autoComplete: "on",
 				inputMode: "text",
 				nullable: false,
+				valueType: "string",
+				valueFormat: "text",
 			},
 			...opts
 		);
@@ -138,24 +159,28 @@ function number(...opts: Partial<InputOption<number>>[]): FnInput<number> {
 		return mergeOpts(
 			{
 				name,
+				returnValue: 0,
 				regexp: "^[0-9]*$",
 				invalidMessage: "",
-				defaultValue: 0,
+				defaultValue: "0",
 				type: "text",
 				autoComplete: "on",
 				inputMode: "text",
 				nullable: false,
+				valueType: "number",
+				valueFormat: "text",
 			},
 			...opts
 		);
 	};
 }
 
-function boolean(...opts: Partial<InputOption<StringBool>>[]): FnInput<StringBool> {
+function boolean(...opts: Partial<InputOption<boolean>>[]): FnInput<boolean> {
 	return (name) => {
 		return mergeOpts(
 			{
 				name,
+				returnValue: false,
 				regexp: "^(true|false)$",
 				invalidMessage: "",
 				defaultValue: "false",
@@ -163,6 +188,8 @@ function boolean(...opts: Partial<InputOption<StringBool>>[]): FnInput<StringBoo
 				autoComplete: "on",
 				inputMode: "text",
 				nullable: false,
+				valueType: "boolean",
+				valueFormat: "text",
 			},
 			...opts
 		);
@@ -174,6 +201,7 @@ function objectId(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 		return mergeOpts(
 			{
 				name,
+				returnValue: "",
 				regexp: "^[a-z0-9]{24}$",
 				invalidMessage: "아이디를 확인하여 주십시오.",
 				defaultValue: "",
@@ -181,6 +209,71 @@ function objectId(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 				autoComplete: "on",
 				inputMode: "text",
 				nullable: false,
+				valueType: "string",
+				valueFormat: "text",
+			},
+			...opts
+		);
+	};
+}
+
+function strings(...opts: Partial<InputOption<string[]>>[]): FnInput<string[]> {
+	return (name) => {
+		return mergeOpts(
+			{
+				name,
+				returnValue: [],
+				regexp: "",
+				invalidMessage: "",
+				defaultValue: "",
+				type: "text",
+				autoComplete: "on",
+				inputMode: "text",
+				nullable: false,
+				valueType: "string",
+				valueFormat: "csv",
+			},
+			...opts
+		);
+	};
+}
+
+function numbers(...opts: Partial<InputOption<number[]>>[]): FnInput<number[]> {
+	return (name) => {
+		return mergeOpts(
+			{
+				name,
+				returnValue: [],
+				regexp: "",
+				invalidMessage: "",
+				defaultValue: "",
+				type: "text",
+				autoComplete: "on",
+				inputMode: "text",
+				nullable: false,
+				valueType: "number",
+				valueFormat: "csv",
+			},
+			...opts
+		);
+	};
+}
+
+function booleans(...opts: Partial<InputOption<boolean[]>>[]): FnInput<boolean[]> {
+	return (name) => {
+		return mergeOpts(
+			{
+				name,
+				returnValue: [],
+				regexp: "",
+				invalidMessage: "",
+				defaultValue: "",
+				type: "text",
+				autoComplete: "on",
+				inputMode: "text",
+				nullable: false,
+				valueType: "boolean",
+				valueFormat: "csv",
 			},
 			...opts
 		);
@@ -208,4 +301,7 @@ export default {
 	boolean,
 	lowerSnakeCase,
 	form,
+	strings,
+	numbers,
+	booleans,
 };

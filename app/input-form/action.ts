@@ -1,5 +1,5 @@
 "use server";
-import {sampleForm} from "@app/form";
+import {sampleForm} from "@app/input-form/form";
 import {fnAction} from "src/index";
 
 export default async function (_: any, form: FormData) {

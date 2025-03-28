@@ -9,6 +9,7 @@ export default async function <INPUT, RESPONSE>(
 ): Promise<State<INPUT, RESPONSE>> {
 	const res: State<INPUT, RESPONSE> = {
 		input: fnInput.fn.formFieldAll(form, formHelper),
+		value: fnInput.fn.formValue(form, formHelper),
 	};
 	try {
 		res.response = await handler(fnInput.fn.formFieldAll(form, formHelper, true));

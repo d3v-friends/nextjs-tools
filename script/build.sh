@@ -4,7 +4,7 @@ rm ./**/*.js || true;
 rm ./**/*.d.ts || true;
 
 
-#pnpm up;
+pnpm up;
 tsc -p tsconfig.export.json;
 rm ./**/tsconfig.export.tsbuildinfo || true;
 git add .;

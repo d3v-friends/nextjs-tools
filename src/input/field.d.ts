@@ -1,4 +1,4 @@
-import { FnInput, FormArgs, FormHelper, InputOption, StringBool } from "./types";
+import { FnInput, FormArgs, FormHelper, InputOption } from "./types";
 declare function username(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function password(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function otp(...opts: Partial<InputOption<string>>[]): FnInput<string>;
@@ -7,8 +7,11 @@ declare function lowerSnakeCase(...opts: Partial<InputOption<string>>[]): FnInpu
 declare function port(...opts: Partial<InputOption<number>>[]): FnInput<number>;
 declare function string(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function number(...opts: Partial<InputOption<number>>[]): FnInput<number>;
-declare function boolean(...opts: Partial<InputOption<StringBool>>[]): FnInput<StringBool>;
+declare function boolean(...opts: Partial<InputOption<boolean>>[]): FnInput<boolean>;
 declare function objectId(...opts: Partial<InputOption<string>>[]): FnInput<string>;
+declare function strings(...opts: Partial<InputOption<string[]>>[]): FnInput<string[]>;
+declare function numbers(...opts: Partial<InputOption<number[]>>[]): FnInput<number[]>;
+declare function booleans(...opts: Partial<InputOption<boolean[]>>[]): FnInput<boolean[]>;
 declare function form<INPUT>(opts: FormArgs<INPUT>): FormHelper<INPUT>;
 declare const _default: {
     username: typeof username;
@@ -22,5 +25,8 @@ declare const _default: {
     boolean: typeof boolean;
     lowerSnakeCase: typeof lowerSnakeCase;
     form: typeof form;
+    strings: typeof strings;
+    numbers: typeof numbers;
+    booleans: typeof booleans;
 };
 export default _default;

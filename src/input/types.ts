@@ -15,10 +15,16 @@ export type HTMLInputAttributes = {
 export type InputHelper<T> = InputOption<T> & {name: string};
 
 export type InputOption<T> = {
-	defaultValue: T;
+	// parser info
+	returnValue: T;
 	regexp: string;
 	invalidMessage: string;
 	nullable: boolean;
+	valueType: "string" | "number" | "boolean";
+	valueFormat: "text" | "csv";
+
+	// Input attributes
+	defaultValue: string;
 	type: HTMLInputTypeAttribute;
 	autoComplete?: HTMLInputAutoCompleteAttribute;
 	inputMode?: HTMLInputModeAttribute;

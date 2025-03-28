@@ -13,7 +13,8 @@ export default function <INPUT, RESPONSE>(
 	pending: boolean;
 } {
 	const [state, action, pending] = useActionState<State<INPUT, RESPONSE>, FormData>(handler, {
-		input: fnInput.fn.initValue(formHelper),
+		input: fnInput.fn.initInput(formHelper),
+		value: fnInput.fn.initValue(formHelper),
 	});
 
 	return {

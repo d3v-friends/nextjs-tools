@@ -1,5 +1,6 @@
 export type State<INPUT, RESPONSE> = {
     input: INPUT;
+    value: Record<keyof INPUT, string>;
     response?: RESPONSE;
     error?: Error;
 };
