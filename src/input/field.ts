@@ -153,6 +153,27 @@ function string(...opts: Partial<InputOption<string>>[]): FnInput<string> {
 	};
 }
 
+function rfc3339time(...opts: Partial<InputOption<string>>[]): FnInput<string> {
+	return (name) => {
+		return mergeOpts(
+			{
+				name,
+				returnValue: "",
+				regexp: "^((?:(\\d{4}-\\d{2}-\\d{2})T(\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?))(Z|[\\+-]\\d{2}:\\d{2})?)$",
+				invalidMessage: "",
+				defaultValue: "",
+				type: "text",
+				autoComplete: "on",
+				inputMode: "text",
+				nullable: false,
+				valueType: "string",
+				valueFormat: "text",
+			},
+			...opts
+		);
+	};
+}
+
 // todo decimal 관련 regexp 보완하기
 function number(...opts: Partial<InputOption<number>>[]): FnInput<number> {
 	return (name) => {
