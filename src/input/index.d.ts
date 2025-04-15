@@ -14,6 +14,7 @@ declare const _default: {
         strings: (...opts: Partial<import("./types").InputOption<string[]>>[]) => import("./types").FnInput<string[]>;
         numbers: (...opts: Partial<import("./types").InputOption<number[]>>[]) => import("./types").FnInput<number[]>;
         booleans: (...opts: Partial<import("./types").InputOption<boolean[]>>[]) => import("./types").FnInput<boolean[]>;
+        rfc3339time: (...opts: Partial<import("./types").InputOption<string>>[]) => import("./types").FnInput<string>;
     };
     fn: {
         formField: <T>(form: FormData, input: import("./types").InputHelper<T>, ...throws: boolean[]) => import("..").Nullable<T>;

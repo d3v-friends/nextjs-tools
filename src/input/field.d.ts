@@ -6,6 +6,7 @@ declare function ip(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function lowerSnakeCase(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function port(...opts: Partial<InputOption<number>>[]): FnInput<number>;
 declare function string(...opts: Partial<InputOption<string>>[]): FnInput<string>;
+declare function rfc3339time(...opts: Partial<InputOption<string>>[]): FnInput<string>;
 declare function number(...opts: Partial<InputOption<number>>[]): FnInput<number>;
 declare function boolean(...opts: Partial<InputOption<boolean>>[]): FnInput<boolean>;
 declare function objectId(...opts: Partial<InputOption<string>>[]): FnInput<string>;
@@ -28,5 +29,6 @@ declare const _default: {
     strings: typeof strings;
     numbers: typeof numbers;
     booleans: typeof booleans;
+    rfc3339time: typeof rfc3339time;
 };
 export default _default;

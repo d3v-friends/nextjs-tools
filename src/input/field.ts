@@ -325,4 +325,5 @@ export default {
 	strings,
 	numbers,
 	booleans,
+	rfc3339time,
 };
