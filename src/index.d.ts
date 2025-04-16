@@ -14,6 +14,7 @@ export * from "./input/types";
 export * from "./cookies/types";
 export * from "./graphql/types";
 export * from "./input/types";
+export * from "./strings";
 export type NextPageProps = Readonly<{
     params: Promise<NextPageParams>;
     searchParams: Promise<NextPageSearchParams>;
