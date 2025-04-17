@@ -1,4 +1,4 @@
-import {randomUUID} from "node:crypto";
+import {randomUUID} from "crypto";
 import {pbkdf2Sync} from "pbkdf2";
 
 function salting({salt, password}: {salt: string; password: string}): string {
