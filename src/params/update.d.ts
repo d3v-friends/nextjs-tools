@@ -1,1 +1,1 @@
-export default function <T>(prevParams: T, nextParams: Partial<T>): string;
+export default function (nextParams: Record<string, string>): string;

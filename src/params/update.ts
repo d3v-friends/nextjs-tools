@@ -1,9 +1,11 @@
 "use client";
 
-export default function <T>(prevParams: T, nextParams: Partial<T>): string {
-	let res = "";
-	for (const key in prevParams) {
-		res = `${res}&${key}=${nextParams.hasOwnProperty(key) ? nextParams[key] : prevParams[key]}`;
+export default function (nextParams: Record<string, string>): string {
+	const u = new URLSearchParams(window.location.search);
+
+	for (const key in nextParams) {
+		u.set(key, nextParams[key]);
 	}
-	return res.slice(1, res.length);
+
+	return u.toString();
 }
