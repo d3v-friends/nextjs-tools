@@ -43,8 +43,6 @@ export default async function <TResult, TVariables>(args: ExecArgs<TResult, TVar
 	switch (response.status) {
 		case 200:
 			const res: any = await response.json();
-			console.log("fetch_success", body, JSON.stringify(res));
-
 			if (res.hasOwnProperty("errors")) {
 				throw new Error((res as GqlErrorResponse).errors[0].message);
 			}
@@ -55,7 +53,6 @@ export default async function <TResult, TVariables>(args: ExecArgs<TResult, TVar
 
 			return res.data;
 		default:
-			console.log("fetch_failed", body);
 			throw new Error(`${errUnexpectedGraphqlError}: value=${JSON.stringify(response)}`);
 	}
 }
