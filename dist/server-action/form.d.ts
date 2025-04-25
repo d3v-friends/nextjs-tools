@@ -1,9 +1,9 @@
-import { Form, FormValue, FromString } from "./types";
-declare function string<INPUT>(data: FormData, form: Form<INPUT>): FromString<INPUT>;
-declare function value<INPUT>(data: FormData, form: Form<INPUT>): FormValue<INPUT>;
-declare function defaultValue<INPUT>(form: Form<INPUT>): INPUT;
-declare function defaultString<INPUT>(form: Form<INPUT>): FromString<INPUT>;
-declare function createForm<INPUT>(form: Form<INPUT>): Form<INPUT>;
+import { ActionForm, ActionFormValue, ActionFromString } from "..";
+declare function string<INPUT>(data: FormData, form: ActionForm<INPUT>): ActionFromString<INPUT>;
+declare function value<INPUT>(data: FormData, form: ActionForm<INPUT>): ActionFormValue<INPUT>;
+declare function defaultValue<INPUT>(form: ActionForm<INPUT>): INPUT;
+declare function defaultString<INPUT>(form: ActionForm<INPUT>): ActionFromString<INPUT>;
+declare function createForm<INPUT>(form: ActionForm<INPUT>): ActionForm<INPUT>;
 declare const _default: {
     string: typeof string;
     value: typeof value;

@@ -1,10 +1,10 @@
 import {Logger} from "@root/logger";
 import {fnServerAction} from ".";
-import {ActionHandler, ActionState, Form} from "./types";
+import {ActionForm, ActionHandler, ActionState} from "..";
 
 export default async function <INPUT, RESPONSE>(
 	data: FormData,
-	form: Form<INPUT>,
+	form: ActionForm<INPUT>,
 	handler: ActionHandler<INPUT, RESPONSE>
 ): Promise<ActionState<INPUT, RESPONSE>> {
 	const res: ActionState<INPUT, RESPONSE> = {

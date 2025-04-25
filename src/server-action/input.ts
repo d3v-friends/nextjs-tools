@@ -1,4 +1,4 @@
-import {InputAttributes} from "./types";
+import {InputAttributes} from "..";
 
 function string({
 	name,

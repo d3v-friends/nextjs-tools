@@ -1,4 +1,4 @@
-import { InputAttributes } from "./types";
+import { InputAttributes } from "..";
 declare function string({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
 declare function strings({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string[]>>): InputAttributes<string[]>;
 declare function username({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;

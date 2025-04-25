@@ -1,6 +1,6 @@
-import {Form, FormValue, FromString, InputAttributes} from "./types";
+import {ActionForm, ActionFormValue, ActionFromString, InputAttributes} from "..";
 
-function string<INPUT>(data: FormData, form: Form<INPUT>): FromString<INPUT> {
+function string<INPUT>(data: FormData, form: ActionForm<INPUT>): ActionFromString<INPUT> {
 	const res: any = {};
 	for (const name in form) {
 		const entry = data.get(name);
@@ -16,13 +16,13 @@ function string<INPUT>(data: FormData, form: Form<INPUT>): FromString<INPUT> {
 
 		res[name] = entry;
 	}
-	return res as FromString<INPUT>;
+	return res as ActionFromString<INPUT>;
 }
 
-function value<INPUT>(data: FormData, form: Form<INPUT>): FormValue<INPUT> {
+function value<INPUT>(data: FormData, form: ActionForm<INPUT>): ActionFormValue<INPUT> {
 	const str = string(data, form);
 
-	const res: FormValue<INPUT> = {
+	const res: ActionFormValue<INPUT> = {
 		input: defaultValue(form),
 	};
 
@@ -118,7 +118,7 @@ function parseValue<T>(str: string, input: InputAttributes<T>): ParsedValue<T> {
 	}
 }
 
-function defaultValue<INPUT>(form: Form<INPUT>): INPUT {
+function defaultValue<INPUT>(form: ActionForm<INPUT>): INPUT {
 	const res: any = {};
 	for (const name in form) {
 		res[name] = form[name].value;
@@ -126,19 +126,19 @@ function defaultValue<INPUT>(form: Form<INPUT>): INPUT {
 	return res as INPUT;
 }
 
-function defaultString<INPUT>(form: Form<INPUT>): FromString<INPUT> {
+function defaultString<INPUT>(form: ActionForm<INPUT>): ActionFromString<INPUT> {
 	const res: any = {};
 	for (const name in form) {
 		res[name] = form[name].defaultValue;
 	}
-	return res as FromString<INPUT>;
+	return res as ActionFromString<INPUT>;
 }
 
 function invalidMessage(value: string, regexp?: string): string {
 	return `invalid_value: value=${value}${regexp ? `, regexp=${regexp}` : ""}`;
 }
 
-function createForm<INPUT>(form: Form<INPUT>): Form<INPUT> {
+function createForm<INPUT>(form: ActionForm<INPUT>): ActionForm<INPUT> {
 	for (const name in form) {
 		form[name].name = name;
 	}
