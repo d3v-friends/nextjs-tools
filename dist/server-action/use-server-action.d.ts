@@ -1,2 +1,2 @@
-import { Action, Form, State } from "./types";
-export default function <INPUT, RESPONSE>(handler: (_: any, form: FormData) => Promise<State<INPUT, RESPONSE>>, form: Form<INPUT>): [Awaited<State<INPUT, RESPONSE>>, Action, boolean];
+import { Action, ActionState, Form } from "./types";
+export default function <INPUT, RESPONSE>(handler: (_: any, form: FormData) => Promise<ActionState<INPUT, RESPONSE>>, form: Form<INPUT>): [Awaited<ActionState<INPUT, RESPONSE>>, Action, boolean];

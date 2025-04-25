@@ -2,6 +2,7 @@ import forms from "./form";
 import inputs from "./input";
 import parser from "./parser";
 
+export * from "./types";
 export {default as useServerAction} from "./use-server-action";
 
 const fnServerAction = {

@@ -28,7 +28,7 @@ export type FormValue<INPUT> = {
     input: INPUT;
     err?: string;
 };
-export interface State<INPUT, RESPONSE> {
+export interface ActionState<INPUT, RESPONSE> {
     time: number;
     value: INPUT;
     string: {

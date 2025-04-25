@@ -31,7 +31,7 @@ export type FromString<INPUT> = {[K in keyof INPUT]: string};
 
 export type FormValue<INPUT> = {input: INPUT; err?: string};
 
-export interface State<INPUT, RESPONSE> {
+export interface ActionState<INPUT, RESPONSE> {
 	time: number;
 	value: INPUT;
 	string: {[K in keyof INPUT]: string};

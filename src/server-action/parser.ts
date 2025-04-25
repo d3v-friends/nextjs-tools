@@ -1,13 +1,13 @@
 import {Logger} from "@root/logger";
 import {fnServerAction} from ".";
-import {ActionHandler, Form, State} from "./types";
+import {ActionHandler, ActionState, Form} from "./types";
 
 export default async function <INPUT, RESPONSE>(
 	data: FormData,
 	form: Form<INPUT>,
 	handler: ActionHandler<INPUT, RESPONSE>
-): Promise<State<INPUT, RESPONSE>> {
-	const res: State<INPUT, RESPONSE> = {
+): Promise<ActionState<INPUT, RESPONSE>> {
+	const res: ActionState<INPUT, RESPONSE> = {
 		time: new Date().getTime(),
 		string: fnServerAction.forms.string(data, form),
 		value: fnServerAction.forms.defaultValue(form),
