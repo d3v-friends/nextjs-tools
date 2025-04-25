@@ -1,6 +1,5 @@
-import {Logger} from "@root/logger";
 import {fnServerAction} from ".";
-import {ActionForm, ActionHandler, ActionState} from "..";
+import {ActionForm, ActionHandler, ActionState, fnLogger} from "..";
 
 export default async function <INPUT, RESPONSE>(
 	data: FormData,
@@ -15,7 +14,7 @@ export default async function <INPUT, RESPONSE>(
 
 	const value = fnServerAction.forms.value(data, form);
 	if (value.err) {
-		Logger.Error("FORM_ACTION", res.string, res.err);
+		fnLogger.Error("FORM_ACTION", res.string, res.err);
 		res.err = value.err;
 		return res;
 	}
@@ -24,13 +23,13 @@ export default async function <INPUT, RESPONSE>(
 
 	try {
 		res.response = await handler(res.value);
-		Logger.Trace("FORM_ACTION", res.string, res.response);
+		fnLogger.Trace("FORM_ACTION", res.string, res.response);
 		return res;
 	} catch (e) {
 		if (e instanceof Error) res.err = e.message;
 		else res.err = JSON.stringify(e);
 
-		Logger.Error("FORM_ACTION", res.string, res.err);
+		fnLogger.Error("FORM_ACTION", res.string, res.err);
 
 		return res;
 	}
