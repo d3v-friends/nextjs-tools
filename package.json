@@ -1,6 +1,6 @@
 {
   "name": "nextjs-tools",
-  "version": "0.1.34",
+  "version": "0.1.35",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
     "export": "sh ./script/build.sh",
@@ -17,7 +17,6 @@
     "pbkdf2": "3.1.2"
   },
   "devDependencies": {
-    "tsc-alias": "1.8.15",
     "@types/node": "22.14.1",
     "@types/pbkdf2": "3.1.2",
     "@types/react": "19.1.2",
