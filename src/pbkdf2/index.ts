@@ -9,7 +9,9 @@ function newSalt(): string {
 	return randomUUID();
 }
 
-export default {
+const fnPbkdf2 = {
 	salting,
 	newSalt,
 };
+
+export {fnPbkdf2};

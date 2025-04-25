@@ -1,3 +1,7 @@
-import NumberThousandSeparator from "./number-thousand-separator";
+import numberThousandSeparator from "./number-thousand-separator";
 
-export {NumberThousandSeparator};
+const fnStrings = {
+	numberThousandSeparator,
+};
+
+export {fnStrings};

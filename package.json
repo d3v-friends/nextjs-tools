@@ -1,13 +1,14 @@
 {
   "name": "nextjs-tools",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
     "export": "sh ./script/build.sh",
-    "tag": "sh ./script/tag.sh $(jq \".version\" package.json | tr -d '\"')"
+    "tag": "sh ./script/tag.sh $(jq \".version\" package.json | tr -d '\"')",
+    "prod": "sh ./script/prod.sh"
   },
-  "main": "./src/index.js",
-  "types": "./src/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/d3v-friends/nextjs-tools"
@@ -16,14 +17,15 @@
     "pbkdf2": "3.1.2"
   },
   "devDependencies": {
-    "@types/pbkdf2": "3.1.2",
-    "next": "15.3.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "tsc-alias": "1.8.15",
     "@types/node": "22.14.1",
+    "@types/pbkdf2": "3.1.2",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
+    "next": "15.3.0",
     "prettier": "3.5.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "typescript": "5.8.3"
   }
 }

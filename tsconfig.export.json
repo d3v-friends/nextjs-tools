@@ -5,7 +5,7 @@
     "declaration": true,
     "inlineSourceMap": true,
     "removeComments": true,
-    "outDir": "./src"
+    "outDir": "./dist"
   },
   "include": [
     "./src/*",

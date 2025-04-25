@@ -3,9 +3,11 @@ import getAuthorization from "./get-authorization";
 import newHeader from "./new-header";
 import setAuthorization from "./set-authorization";
 
-export default {
+const fnCookies = {
 	getAuthorization,
 	setAuthorization,
 	newHeader,
 	clearAuthorization,
 };
+
+export {fnCookies};

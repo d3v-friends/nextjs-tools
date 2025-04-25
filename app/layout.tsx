@@ -1,6 +1,6 @@
+import {fnEnv} from "@root";
 import {Viewport} from "next";
 import {ReactNode} from "react";
-import {fnEnv} from "src/index";
 
 export const viewport: Viewport = {
 	width: "device-width",

@@ -1,7 +1,9 @@
 import parse from "./parse";
 import update from "./update";
 
-export default {
+const fnParams = {
 	parse,
 	update,
 };
+
+export {fnParams};

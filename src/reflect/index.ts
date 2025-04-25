@@ -1,3 +1,5 @@
 import merge from "./merge";
 
-export default {merge};
+const fnReflect = {merge};
+
+export {fnReflect};

@@ -2,8 +2,10 @@ import exec from "./exec";
 import inline from "./inline";
 import query from "./query";
 
-export default {
+const fnGraphQL = {
 	exec,
 	inline,
 	query,
 };
+
+export {fnGraphQL};
