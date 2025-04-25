@@ -12,6 +12,7 @@ function string({
 	inputFormat = "text",
 	inputType = "string",
 	value = "",
+	invalidMessage,
 }: Partial<InputAttributes<string>>): InputAttributes<string> {
 	return {
 		name,
@@ -25,6 +26,7 @@ function string({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -40,6 +42,7 @@ function strings({
 	inputFormat = "csv",
 	inputType = "string",
 	value = [],
+	invalidMessage,
 }: Partial<InputAttributes<string[]>>): InputAttributes<string[]> {
 	return {
 		name,
@@ -53,6 +56,7 @@ function strings({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -68,6 +72,7 @@ function username({
 	inputFormat = "text",
 	inputType = "string",
 	value = "",
+	invalidMessage = "아이디를 확인하여 주십시오.",
 }: Partial<InputAttributes<string>>): InputAttributes<string> {
 	return {
 		name,
@@ -81,6 +86,7 @@ function username({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -96,6 +102,7 @@ function password({
 	inputFormat = "text",
 	inputType = "string",
 	value = "",
+	invalidMessage = "비밀번호를 확인하여 주십시오.",
 }: Partial<InputAttributes<string>>): InputAttributes<string> {
 	return {
 		name,
@@ -109,6 +116,7 @@ function password({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -124,6 +132,7 @@ function otp({
 	inputFormat = "text",
 	inputType = "string",
 	value = "",
+	invalidMessage = "OTP 를 확인하여 주십시오.",
 }: Partial<InputAttributes<string>>): InputAttributes<string> {
 	return {
 		name,
@@ -137,6 +146,7 @@ function otp({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -152,6 +162,7 @@ function ip({
 	inputFormat = "text",
 	inputType = "string",
 	value = "",
+	invalidMessage = "IP 를 확인하여 주십시오.",
 }: Partial<InputAttributes<string>>): InputAttributes<string> {
 	return {
 		name,
@@ -165,6 +176,7 @@ function ip({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -180,6 +192,7 @@ function lowerSnakeCase({
 	inputFormat = "text",
 	inputType = "string",
 	value = "",
+	invalidMessage = "내용을 확인하여 주십시오. (lower_snake_case)",
 }: Partial<InputAttributes<string>>): InputAttributes<string> {
 	return {
 		name,
@@ -193,6 +206,7 @@ function lowerSnakeCase({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -208,6 +222,7 @@ function rfc3339Time({
 	inputFormat = "text",
 	inputType = "string",
 	value = "",
+	invalidMessage = "시간을 확인하여 주십시오.",
 }: Partial<InputAttributes<string>>): InputAttributes<string> {
 	return {
 		name,
@@ -221,6 +236,7 @@ function rfc3339Time({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -236,6 +252,7 @@ function objectID({
 	inputFormat = "text",
 	inputType = "string",
 	value = "",
+	invalidMessage = "ObjectID 값을 확인하여 주십시오.",
 }: Partial<InputAttributes<string>>): InputAttributes<string> {
 	return {
 		name,
@@ -249,6 +266,7 @@ function objectID({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -264,6 +282,7 @@ function port({
 	inputFormat = "text",
 	inputType = "number",
 	value = 0,
+	invalidMessage = "Port 번호를 확인하여 주십시오.",
 }: Partial<InputAttributes<number>>): InputAttributes<number> {
 	return {
 		name,
@@ -277,6 +296,7 @@ function port({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -292,6 +312,7 @@ function number({
 	inputFormat = "text",
 	inputType = "number",
 	value = 0,
+	invalidMessage,
 }: Partial<InputAttributes<number>>): InputAttributes<number> {
 	return {
 		name,
@@ -305,6 +326,7 @@ function number({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 
@@ -320,6 +342,7 @@ function numbers({
 	inputFormat = "csv",
 	inputType = "number",
 	value = [],
+	invalidMessage,
 }: Partial<InputAttributes<number[]>>): InputAttributes<number[]> {
 	return {
 		name,
@@ -333,6 +356,7 @@ function numbers({
 		inputFormat,
 		inputType,
 		value,
+		invalidMessage,
 	};
 }
 

@@ -1,16 +1,16 @@
 import { InputAttributes } from "..";
-declare function string({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
-declare function strings({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string[]>>): InputAttributes<string[]>;
-declare function username({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
-declare function password({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
-declare function otp({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
-declare function ip({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
-declare function lowerSnakeCase({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
-declare function rfc3339Time({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
-declare function objectID({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<string>>): InputAttributes<string>;
-declare function port({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<number>>): InputAttributes<number>;
-declare function number({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<number>>): InputAttributes<number>;
-declare function numbers({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, }: Partial<InputAttributes<number[]>>): InputAttributes<number[]>;
+declare function string({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
+declare function strings({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string[]>>): InputAttributes<string[]>;
+declare function username({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
+declare function password({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
+declare function otp({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
+declare function ip({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
+declare function lowerSnakeCase({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
+declare function rfc3339Time({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
+declare function objectID({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
+declare function port({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<number>>): InputAttributes<number>;
+declare function number({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<number>>): InputAttributes<number>;
+declare function numbers({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<number[]>>): InputAttributes<number[]>;
 declare const _default: {
     string: typeof string;
     strings: typeof strings;
