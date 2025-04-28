@@ -93,7 +93,7 @@ function username({
 function password({
 	name,
 	defaultValue = "",
-	type = "text",
+	type = "password",
 	autoComplete,
 	inputMode = "text",
 	hidden,
