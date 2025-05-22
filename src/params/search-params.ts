@@ -5,7 +5,7 @@ export default function searchParams(params: Record<string, string | number>, ho
 		u.set(key, params[key].toString());
 	}
 
-	host = host || window.location.host;
+	host = host || window.location.pathname;
 
 	return `${host}?${u.toString()}`;
 }
