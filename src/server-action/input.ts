@@ -30,6 +30,36 @@ function string({
 	};
 }
 
+function boolean({
+	name,
+	defaultValue = "",
+	type = "text",
+	autoComplete,
+	inputMode = "text",
+	hidden,
+	regexp = "^(true|false)$",
+	nullable,
+	inputFormat = "text",
+	inputType = "string",
+	value = "",
+	invalidMessage,
+}: Partial<InputAttributes<string>>): InputAttributes<string> {
+	return {
+		name,
+		defaultValue,
+		type,
+		autoComplete,
+		inputMode,
+		hidden,
+		regexp,
+		nullable,
+		inputFormat,
+		inputType,
+		value,
+		invalidMessage,
+	};
+}
+
 function strings({
 	name,
 	defaultValue = "",
