@@ -2,9 +2,7 @@
 
 import {useSearchParams} from "next/navigation";
 
-type Params<KEY extends string> = Record<KEY, string | number>;
-
-export default function <KEY extends string>(initParams: Params<KEY>): Params<KEY> {
+export default function <T extends Record<string, string | number>>(initParams: T): T {
 	const params = useSearchParams();
 	const res: any = {};
 	for (let key in initParams) {
@@ -15,12 +13,10 @@ export default function <KEY extends string>(initParams: Params<KEY>): Params<KE
 					res[key] = initParams[key];
 					continue;
 				}
-
 				if (Number.isNaN(Number(value))) {
 					res[key] = initParams[key];
 					continue;
 				}
-
 				res[key] = Number(value);
 				break;
 			default:
@@ -28,5 +24,5 @@ export default function <KEY extends string>(initParams: Params<KEY>): Params<KE
 				res[key] = params.get(key) || initParams[key];
 		}
 	}
-	return res as Params<KEY>;
+	return res as T;
 }
