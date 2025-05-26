@@ -11,6 +11,7 @@ export * from "./pbkdf2";
 export * from "./reflect";
 export * from "./server-action";
 export * from "./strings";
+export {default as useTypedSearchParams} from "./params/use-typed-search-params";
 
 export type NextPageProps = Readonly<{
 	params: Promise<NextPageParams>;
