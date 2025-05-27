@@ -6,7 +6,7 @@ export default async function <TResult, TVariables>(
 	host: string,
 	query: Document<TResult, TVariables>,
 	header?: Header,
-	...[variables]: TVariables extends Record<string, never> ? [] : [TVariables]
+	variables?: TVariables
 ): Promise<QueryResult<TResult>> {
 	try {
 		return {
