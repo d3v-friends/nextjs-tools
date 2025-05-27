@@ -1,7 +1,7 @@
-import { Document } from "./types";
+import { Document, Header } from "./types";
 type ExecArgs<TResult, TVariables> = {
     host: string;
-    header?: Record<string, string>;
+    header?: Header;
     query: Document<TResult, TVariables>;
     variables?: TVariables;
 };

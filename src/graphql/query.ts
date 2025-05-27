@@ -1,16 +1,16 @@
 "use server";
 import exec from "./exec";
-import {Document} from "./types";
+import {Document, Header, QueryResult} from "./types";
 
 export default async function <TResult, TVariables>(
 	host: string,
 	query: Document<TResult, TVariables>,
-	header?: Record<string, string>,
+	header?: Header,
 	...[variables]: TVariables extends Record<string, never> ? [] : [TVariables]
-): Promise<{result: TResult; error?: Error}> {
+): Promise<QueryResult<TResult>> {
 	try {
 		return {
-			result: await exec({
+			data: await exec({
 				host,
 				query,
 				header,
@@ -19,7 +19,7 @@ export default async function <TResult, TVariables>(
 		};
 	} catch (e) {
 		return {
-			result: null as TResult,
+			data: null as TResult,
 			error: e instanceof Error ? e : new Error(JSON.stringify(e)),
 		};
 	}

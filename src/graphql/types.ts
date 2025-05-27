@@ -20,31 +20,8 @@ export type GraphqlError = {
 };
 
 export type Header = Record<string, string>;
+
 export type QueryResult<TResult> = {
 	data: TResult;
 	error?: Error;
 };
-
-export interface GraphQLClient {
-	readonly host: string;
-	readonly header?: Header;
-
-	appendHeader(header: Header): GraphQLClient;
-
-	replace(
-		args: Partial<{
-			host: string;
-			header: Header;
-		}>
-	): GraphQLClient;
-
-	query<TResult, TVariables>(
-		query: Document<TResult, TVariables>,
-		variables?: TVariables
-	): Promise<{
-		data: TResult;
-		error?: Error;
-	}>;
-
-	exec<TResult, TVariables>(query: Document<TResult, TVariables>, variables?: TVariables): Promise<TResult>;
-}

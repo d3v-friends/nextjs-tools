@@ -1,10 +1,9 @@
 "use server";
-import {fnCookies} from "..";
-import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError} from "./types";
+import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError, Header} from "./types";
 
 type ExecArgs<TResult, TVariables> = {
 	host: string;
-	header?: Record<string, string>;
+	header?: Header;
 	query: Document<TResult, TVariables>;
 	variables?: TVariables;
 };
@@ -22,7 +21,7 @@ export default async function <TResult, TVariables>(args: ExecArgs<TResult, TVar
 
 	const body = {
 		method: "POST",
-		headers: await fnCookies.newHeader(args.header),
+		headers: args.header,
 		body: JSON.stringify({
 			query,
 			variables: args.variables,
