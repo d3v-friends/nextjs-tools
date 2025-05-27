@@ -1,5 +1,5 @@
-import {fnCookies} from "@root";
-import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError} from "@root/graphql/types";
+import {fnCookies} from "../cookies";
+import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError} from "./types";
 
 export default class Client {
 	constructor(

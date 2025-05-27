@@ -1,4 +1,4 @@
-import { Document } from "@root/graphql/types";
+import { Document } from "./types";
 export default class Client {
     readonly host: string;
     private header?;
