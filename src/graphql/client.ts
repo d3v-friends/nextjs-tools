@@ -1,13 +1,18 @@
+"use server";
 import {fnCookies} from "../cookies";
-import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError} from "./types";
+import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError} from "./types";
 
 export default class Client {
-	constructor(
-		public readonly host: string,
-		private header?: Record<string, string>
-	) {}
+	public readonly host;
 
-	addHeader(header: Record<string, string>) {
+	constructor(
+		public readonly envKeyHost?: string,
+		private header?: Record<string, string>
+	) {
+		this.host = process.env[envKeyHost || "GQL_HOST"] || "";
+	}
+
+	appendHeader(header: Record<string, string>) {
 		if (this.header) {
 			header = {...this.header, ...header};
 		}
@@ -24,14 +29,11 @@ export default class Client {
 
 	async query<TResult, TVariables>(
 		query: Document<TResult, TVariables>,
-		...[variables]: TVariables extends Record<string, never> ? [] : [TVariables]
+		variables?: TVariables
 	): Promise<{data: TResult; error?: Error}> {
 		try {
 			return {
-				data: await this.exec({
-					query,
-					variables,
-				}),
+				data: await this.exec<TResult, TVariables>(query, variables),
 			};
 		} catch (e) {
 			return {
@@ -41,23 +43,12 @@ export default class Client {
 		}
 	}
 
-	async inline<TResult, TVariables>(
-		query: Document<TResult, TVariables>,
-		...[variables]: TVariables extends Record<string, never> ? [] : [TVariables]
-	): Promise<TResult> {
-		return this.exec({
-			query,
-			variables,
-		});
-	}
-
-	async exec<TResult, TVariables>(args: ExecArgs<TResult, TVariables>): Promise<TResult> {
-		let query = args.query.toString();
-
-		if (args.query instanceof Array) {
-			query = "";
-			for (let str of args.query) {
-				query = `${query}${str}`;
+	async exec<TResult, TVariables>(query: Document<TResult, TVariables>, variables?: TVariables): Promise<TResult> {
+		let q = query.toString();
+		if (query instanceof Array) {
+			q = "";
+			for (let str of query) {
+				q = `${q}${str}`;
 			}
 		}
 
@@ -65,8 +56,8 @@ export default class Client {
 			method: "POST",
 			headers: await fnCookies.newHeader(this.header),
 			body: JSON.stringify({
-				query,
-				variables: args.variables,
+				query: q,
+				variables,
 			}),
 		};
 
@@ -76,7 +67,7 @@ export default class Client {
 			case 200:
 				const res: any = await response.json();
 				if (res.hasOwnProperty("errors")) {
-					throw new Error((res as GqlErrorResponse).errors[0].message);
+					throw new Error((res as GraphqlError).errors[0].message);
 				}
 
 				if (!res.hasOwnProperty("data")) {
@@ -89,16 +80,3 @@ export default class Client {
 		}
 	}
 }
-
-type ExecArgs<TResult, TVariables> = {
-	query: Document<TResult, TVariables>;
-	variables?: TVariables;
-};
-
-type GqlErrorResponse = {
-	errors: {
-		message: string;
-		path: string[];
-	}[];
-	data: unknown;
-};
