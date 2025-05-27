@@ -4,7 +4,6 @@ export * from "./cookies";
 export * from "./css";
 export * from "./env";
 export * from "./fn";
-export * from "./graphql";
 export * from "./logger";
 export * from "./params";
 export * from "./pbkdf2";
@@ -12,7 +11,7 @@ export * from "./reflect";
 export * from "./server-action";
 export * from "./strings";
 export {default as useTypedSearchParams} from "./params/use-typed-search-params";
-export {default as GraphQL} from "./graphql/client";
+export {default as fnGraphQL} from "./graphql";
 
 export type NextPageProps = Readonly<{
 	params: Promise<NextPageParams>;

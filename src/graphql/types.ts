@@ -18,3 +18,5 @@ export type GraphqlError = {
 	}[];
 	data: unknown;
 };
+
+export type Header = Record<string, string>;

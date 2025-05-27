@@ -1,11 +1,11 @@
+import create from "./create-client";
 import exec from "./exec";
 import inline from "./inline";
 import query from "./query";
 
-const fnGraphQL = {
+export default {
 	exec,
 	inline,
 	query,
+	create,
 };
-
-export {fnGraphQL};

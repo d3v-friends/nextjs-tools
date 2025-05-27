@@ -1,9 +1,8 @@
 import { Document } from "./types";
-export default class Client {
-    readonly envKeyHost?: string | undefined;
-    private header?;
+export declare class Client {
     readonly host: string;
-    constructor(envKeyHost?: string | undefined, header?: Record<string, string> | undefined);
+    private readonly header?;
+    constructor(host: string, header?: Record<string, string> | undefined);
     appendHeader(header: Record<string, string>): Client;
     replaceHeader(header: Record<string, string>): Client;
     replaceHost(host: string): Client;

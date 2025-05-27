@@ -1,16 +1,18 @@
-"use server";
-import {fnCookies} from "../cookies";
+import {fnCookies} from "..";
 import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError} from "./types";
 
-export default class Client {
-	public readonly host;
+interface C {
+	host: string;
+	header?: Record<string, string>;
 
+	a: () => {};
+}
+
+export class Client {
 	constructor(
-		public readonly envKeyHost?: string,
-		private header?: Record<string, string>
-	) {
-		this.host = process.env[envKeyHost || "GQL_HOST"] || "";
-	}
+		public readonly host: string,
+		private readonly header?: Record<string, string>
+	) {}
 
 	appendHeader(header: Record<string, string>) {
 		if (this.header) {
