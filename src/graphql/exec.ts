@@ -1,21 +1,12 @@
 "use server";
-import {fnCookies, fnEnv} from "..";
-import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError} from "./types";
-
-const envHost = "GQL_HOST";
+import {fnCookies} from "..";
+import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError} from "./types";
 
 type ExecArgs<TResult, TVariables> = {
+	host: string;
 	header?: Record<string, string>;
 	query: Document<TResult, TVariables>;
 	variables?: TVariables;
-};
-
-type GqlErrorResponse = {
-	errors: {
-		message: string;
-		path: string[];
-	}[];
-	data: unknown;
 };
 
 export default async function <TResult, TVariables>(args: ExecArgs<TResult, TVariables>): Promise<TResult> {
@@ -38,13 +29,13 @@ export default async function <TResult, TVariables>(args: ExecArgs<TResult, TVar
 		}),
 	};
 
-	const response = await fetch(await fnEnv.server.string(envHost), body);
+	const response = await fetch(args.host, body);
 
 	switch (response.status) {
 		case 200:
 			const res: any = await response.json();
 			if (res.hasOwnProperty("errors")) {
-				throw new Error((res as GqlErrorResponse).errors[0].message);
+				throw new Error((res as GraphqlError).errors[0].message);
 			}
 
 			if (!res.hasOwnProperty("data")) {

@@ -1,5 +1,6 @@
 import { Document } from "./types";
 type ExecArgs<TResult, TVariables> = {
+    host: string;
     header?: Record<string, string>;
     query: Document<TResult, TVariables>;
     variables?: TVariables;

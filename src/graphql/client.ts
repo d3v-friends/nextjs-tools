@@ -1,84 +1,64 @@
-import {fnCookies} from "..";
-import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError} from "./types";
+"use server";
+import fnExec from "./exec";
+import {Document, GraphQLClient, Header} from "./types";
 
-interface C {
-	host: string;
-	header?: Record<string, string>;
-
-	a: () => {};
-}
-
-export class Client {
-	constructor(
-		public readonly host: string,
-		private readonly header?: Record<string, string>
-	) {}
-
-	appendHeader(header: Record<string, string>) {
-		if (this.header) {
-			header = {...this.header, ...header};
-		}
-		return new Client(this.host, header);
-	}
-
-	replaceHeader(header: Record<string, string>) {
-		return new Client(this.host, header);
-	}
-
-	replaceHost(host: string) {
-		return new Client(host, this.header);
-	}
-
-	async query<TResult, TVariables>(
-		query: Document<TResult, TVariables>,
-		variables?: TVariables
-	): Promise<{data: TResult; error?: Error}> {
-		try {
+export default async function (host: string, header?: Header): Promise<GraphQLClient> {
+	header = header || {};
+	const c: GraphQLClient = {
+		host,
+		header,
+		appendHeader(v: Header): GraphQLClient {
 			return {
-				data: await this.exec<TResult, TVariables>(query, variables),
+				...this,
+				header: {
+					...this.header,
+					...v,
+				},
 			};
-		} catch (e) {
+		},
+		replace({
+			host,
+			header,
+		}: Partial<{
+			host: string;
+			header: Header;
+		}>): GraphQLClient {
 			return {
-				data: null as TResult,
-				error: e instanceof Error ? e : new Error(JSON.stringify(e)),
+				...this,
+				host: host ? host : this.host,
+				header: header ? header : this.header,
 			};
-		}
-	}
-
-	async exec<TResult, TVariables>(query: Document<TResult, TVariables>, variables?: TVariables): Promise<TResult> {
-		let q = query.toString();
-		if (query instanceof Array) {
-			q = "";
-			for (let str of query) {
-				q = `${q}${str}`;
+		},
+		async query<TResult, TVariables>(
+			query: Document<TResult, TVariables>,
+			variables?: TVariables
+		): Promise<{
+			data: TResult;
+			error?: Error;
+		}> {
+			try {
+				return {
+					data: await this.exec<TResult, TVariables>(query, variables),
+				};
+			} catch (e) {
+				return {
+					data: null as TResult,
+					error: e instanceof Error ? e : new Error(JSON.stringify(e)),
+				};
 			}
-		}
-
-		const body = {
-			method: "POST",
-			headers: await fnCookies.newHeader(this.header),
-			body: JSON.stringify({
-				query: q,
+		},
+		async exec<TResult, TVariables>(
+			query: Document<TResult, TVariables>,
+			variables?: TVariables
+		): Promise<TResult> {
+			return fnExec({
+				query,
+				header: this.header,
+				host: this.host,
 				variables,
-			}),
-		};
+			});
+		},
+	};
 
-		const response = await fetch(this.host, body);
-
-		switch (response.status) {
-			case 200:
-				const res: any = await response.json();
-				if (res.hasOwnProperty("errors")) {
-					throw new Error((res as GraphqlError).errors[0].message);
-				}
-
-				if (!res.hasOwnProperty("data")) {
-					throw new Error(`${errEmptyGraphqlResponse}: value=${JSON.stringify(res)}`);
-				}
-
-				return res.data;
-			default:
-				throw new Error(`${errUnexpectedGraphqlError}: value=${JSON.stringify(response)}`);
-		}
-	}
+	return c;
 }
