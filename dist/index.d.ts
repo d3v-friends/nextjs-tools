@@ -63,3 +63,4 @@ export interface ActionState<INPUT, RESPONSE> {
     response?: RESPONSE;
 }
 export type ActionHandler<INPUT, RESPONSE> = (input: INPUT) => Promise<RESPONSE>;
+export type ChildNode = ReactNode | ReactNode[];
