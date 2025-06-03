@@ -1,3 +1,4 @@
+import {StaticImageData} from "next/image";
 import {HTMLInputAutoCompleteAttribute, HTMLInputTypeAttribute, ReactNode} from "react";
 
 export * from "./cookies";
@@ -69,3 +70,4 @@ export type ActionHandler<INPUT, RESPONSE> = (input: INPUT) => Promise<RESPONSE>
 
 export type ChildNode = ReactNode | ReactNode[];
 export type FnBase<T> = (v: T) => void;
+export type ImgSrc = string | StaticImageData;
