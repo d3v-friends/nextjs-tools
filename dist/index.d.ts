@@ -67,3 +67,9 @@ export type ActionHandler<INPUT, RESPONSE> = (input: INPUT) => Promise<RESPONSE>
 export type ChildNode = ReactNode | ReactNode[];
 export type FnBase<T> = (v: T) => void;
 export type ImgSrc = string | StaticImageData;
+export type Position = {
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+};
