@@ -72,7 +72,10 @@ export type FnVoid = () => void;
 export const fnVoid: FnVoid = () => {};
 
 export type FnBase<T> = (v: T) => void;
+
 export type FnComponent<T> = (v: T) => ReactNode;
+export const fnVoidComponent: FnComponent<null> = () => "";
+
 export type ImgSrc = string | StaticImageData;
 
 export type Position = {

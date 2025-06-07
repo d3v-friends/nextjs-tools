@@ -68,6 +68,7 @@ export type FnVoid = () => void;
 export declare const fnVoid: FnVoid;
 export type FnBase<T> = (v: T) => void;
 export type FnComponent<T> = (v: T) => ReactNode;
+export declare const fnVoidComponent: FnComponent<null>;
 export type ImgSrc = string | StaticImageData;
 export type Position = {
     top: number;
