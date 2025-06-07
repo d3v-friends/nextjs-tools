@@ -64,8 +64,10 @@ export interface ActionState<INPUT, RESPONSE> {
     response?: RESPONSE;
 }
 export type ActionHandler<INPUT, RESPONSE> = (input: INPUT) => Promise<RESPONSE>;
-export type ChildNode = ReactNode | ReactNode[];
+export type FnVoid = () => void;
+export declare const fnVoid: FnVoid;
 export type FnBase<T> = (v: T) => void;
+export type FnComponent<T> = (v: T) => ReactNode;
 export type ImgSrc = string | StaticImageData;
 export type Position = {
     top: number;
@@ -73,3 +75,4 @@ export type Position = {
     width: number;
     height: number;
 };
+export declare const initPosition: Position;
