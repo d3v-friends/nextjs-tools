@@ -14,8 +14,8 @@ export default async function <INPUT, RESPONSE>(
 
 	const value = fnServerAction.forms.value(data, form);
 	if (value.err) {
-		fnLogger.Error("FORM_ACTION", res.string, res.err);
 		res.err = value.err;
+		fnLogger.Error("FORM_ACTION", res.string, res.err);
 		return res;
 	}
 

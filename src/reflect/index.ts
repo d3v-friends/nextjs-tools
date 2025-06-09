@@ -1,5 +1,6 @@
 import merge from "./merge";
+import parser from "./parser";
 
-const fnReflect = {merge};
+const fnReflect = {merge, parser};
 
-export {fnReflect};
+export default fnReflect;

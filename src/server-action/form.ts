@@ -1,5 +1,6 @@
 import {ActionForm, ActionFormValue, ActionFromString, InputAttributes} from "..";
 
+// todo null 체크가 애매하게됨 확인하기
 function string<INPUT>(data: FormData, form: ActionForm<INPUT>): ActionFromString<INPUT> {
 	const res: any = {};
 	for (const name in form) {

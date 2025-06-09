@@ -1,4 +1,5 @@
 import merge from "./merge";
-const fnReflect = { merge };
-export { fnReflect };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvcmVmbGVjdC9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEtBQUssTUFBTSxTQUFTLENBQUM7QUFFNUIsTUFBTSxTQUFTLEdBQUcsRUFBQyxLQUFLLEVBQUMsQ0FBQztBQUUxQixPQUFPLEVBQUMsU0FBUyxFQUFDLENBQUMifQ==
+import parser from "./parser";
+const fnReflect = { merge, parser };
+export default fnReflect;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvcmVmbGVjdC9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEtBQUssTUFBTSxTQUFTLENBQUM7QUFDNUIsT0FBTyxNQUFNLE1BQU0sVUFBVSxDQUFDO0FBRTlCLE1BQU0sU0FBUyxHQUFHLEVBQUMsS0FBSyxFQUFFLE1BQU0sRUFBQyxDQUFDO0FBRWxDLGVBQWUsU0FBUyxDQUFDIn0=
