@@ -1,1 +1,1 @@
-export default function searchParams(params: Record<string, string | number>, host?: string): string;
+export default function searchParams(params: Record<string, string | number | null>, host?: string): string;

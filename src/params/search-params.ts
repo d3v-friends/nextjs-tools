@@ -1,8 +1,12 @@
 "use client";
-export default function searchParams(params: Record<string, string | number>, host?: string): string {
+export default function searchParams(params: Record<string, string | number | null>, host?: string): string {
 	const u = new URLSearchParams(window.location.search);
 	for (const key in params) {
-		u.set(key, params[key].toString());
+		if (params[key]) {
+			u.set(key, params[key].toString());
+		} else {
+			u.delete(key);
+		}
 	}
 
 	host = host || window.location.pathname;
