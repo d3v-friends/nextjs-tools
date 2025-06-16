@@ -1,5 +1,5 @@
-import exec from "./exec";
-import query from "./query";
+import exec from "./exec.js";
+import query from "./query.js";
 export default {
     exec,
     query,

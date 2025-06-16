@@ -1,5 +1,5 @@
 "use server";
-import { errEmptyGraphqlResponse, errUnexpectedGraphqlError } from "./types";
+import { errEmptyGraphqlResponse, errUnexpectedGraphqlError } from "./types.js";
 export default async function (args) {
     let query = args.query.toString();
     if (args.query instanceof Array) {

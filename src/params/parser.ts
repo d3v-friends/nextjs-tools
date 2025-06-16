@@ -1,4 +1,4 @@
-import {fnRegexp} from "@root";
+import {fnRegexp} from "..";
 
 const fnSearchParamParser = {
 	objectId: (def?: string): ((str: string) => string) => {

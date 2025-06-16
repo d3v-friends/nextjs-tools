@@ -1,6 +1,6 @@
-import concat from "./concat";
-import sum from "./sum";
-import trim from "./trim";
+import concat from "./concat.js";
+import sum from "./sum.js";
+import trim from "./trim.js";
 const fnCss = {
     concat,
     trim,

@@ -1,6 +1,6 @@
 "use server";
 import { cookies } from "next/headers";
-import { httpHeaderAuthorization } from "./types";
+import { httpHeaderAuthorization } from "./types.js";
 export default async function (auth) {
     const c = await cookies();
     c.set(httpHeaderAuthorization, auth, {

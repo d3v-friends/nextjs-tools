@@ -1,4 +1,4 @@
-import numberThousandSeparator from "./number-thousand-separator";
+import numberThousandSeparator from "./number-thousand-separator.js";
 const fnStrings = {
     numberThousandSeparator,
 };

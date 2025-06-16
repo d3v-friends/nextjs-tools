@@ -1,4 +1,4 @@
-import { Nullable } from "@root/index";
+import { Nullable } from "../index";
 import merge from "./merge";
 declare const fnReflect: {
     merge: typeof merge;

@@ -1,7 +1,7 @@
-import clearAuthorization from "./clear-authorization";
-import getAuthorization from "./get-authorization";
-import newHeader from "./new-header";
-import setAuthorization from "./set-authorization";
+import clearAuthorization from "./clear-authorization.js";
+import getAuthorization from "./get-authorization.js";
+import newHeader from "./new-header.js";
+import setAuthorization from "./set-authorization.js";
 const fnCookies = {
     getAuthorization,
     setAuthorization,

@@ -1,4 +1,4 @@
-import { LogLevel } from "./types";
+import { LogLevel } from "./types.js";
 function NewLogLevel(str) {
     str = str || "info";
     switch (str.toLowerCase()) {

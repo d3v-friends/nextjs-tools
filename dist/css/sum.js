@@ -1,5 +1,5 @@
-import concat from "./concat";
-import trim from "./trim";
+import concat from "./concat.js";
+import trim from "./trim.js";
 export default function (...str) {
     let res = concat(...str);
     return trim(res);

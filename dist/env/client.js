@@ -1,5 +1,5 @@
 "use client";
-import { boolean as fnBoolean, number as fnNumber, string as fnString } from "./base";
+import { boolean as fnBoolean, number as fnNumber, string as fnString } from "./base.js";
 export function string(key, ...defaults) {
     return fnString("NEXT_PUBLIC_", key, ...defaults);
 }

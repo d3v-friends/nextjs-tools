@@ -1,6 +1,6 @@
-import parser from "./parser";
-import routerPush from "./router-push";
-import typedSearchParams from "./typed-search-params";
+import parser from "./parser.js";
+import routerPush from "./router-push.js";
+import typedSearchParams from "./typed-search-params.js";
 const fnParams = {
     typedSearchParams,
     routerPush,

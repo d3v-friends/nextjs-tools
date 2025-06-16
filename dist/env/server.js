@@ -1,5 +1,5 @@
 "use server";
-import { boolean as fnBoolean, number as fnNumber, string as fnString } from "./base";
+import { boolean as fnBoolean, number as fnNumber, string as fnString } from "./base.js";
 export async function string(key, ...defaults) {
     return fnString("", key, ...defaults);
 }

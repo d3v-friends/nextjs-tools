@@ -1,6 +1,6 @@
-import forms from "./form";
-import inputs from "./input";
-import parser from "./parser";
+import forms from "./form.js";
+import inputs from "./input.js";
+import parser from "./parser.js";
 const fnServerAction = {
     inputs,
     forms,

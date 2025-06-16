@@ -1,7 +1,7 @@
 "use server";
 import { headers } from "next/headers";
-import getAuthorization from "./get-authorization";
-import { contentTypeApplicationJson, httpHeaderAuthorization, httpHeaderContentType, httpHeaderUserAgent, httpXForwardedHost, } from "./types";
+import getAuthorization from "./get-authorization.js";
+import { contentTypeApplicationJson, httpHeaderAuthorization, httpHeaderContentType, httpHeaderUserAgent, httpXForwardedHost, } from "./types.js";
 export default async function (header) {
     header = header || {};
     header[httpHeaderContentType] = contentTypeApplicationJson;

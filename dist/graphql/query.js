@@ -1,5 +1,5 @@
 "use server";
-import exec from "./exec";
+import exec from "./exec.js";
 export default async function (host, query, header, variables) {
     try {
         return {

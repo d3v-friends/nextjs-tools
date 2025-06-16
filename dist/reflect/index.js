@@ -1,4 +1,4 @@
-import merge from "./merge";
+import merge from "./merge.js";
 const fnReflect = {
     merge,
     number: (v, initValue = 0) => {
