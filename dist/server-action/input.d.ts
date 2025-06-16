@@ -10,6 +10,7 @@ declare function rfc3339Time({ name, defaultValue, type, autoComplete, inputMode
 declare function objectID({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<string>>): InputAttributes<string>;
 declare function port({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<number>>): InputAttributes<number>;
 declare function number({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<number>>): InputAttributes<number>;
+declare function decimal({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<number>>): InputAttributes<number>;
 declare function numbers({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<InputAttributes<number[]>>): InputAttributes<number[]>;
 declare const _default: {
     string: typeof string;
@@ -24,5 +25,6 @@ declare const _default: {
     number: typeof number;
     port: typeof port;
     numbers: typeof numbers;
+    decimal: typeof decimal;
 };
 export default _default;

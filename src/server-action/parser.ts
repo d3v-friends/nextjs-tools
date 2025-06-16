@@ -1,5 +1,4 @@
-import {fnServerAction} from ".";
-import {ActionForm, ActionHandler, ActionState, fnLogger} from "..";
+import {ActionForm, ActionHandler, ActionState, fnLogger, fnServerAction} from "..";
 
 export default async function <INPUT, RESPONSE>(
 	data: FormData,

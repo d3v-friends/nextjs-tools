@@ -1,5 +1,4 @@
 import parser from "./parser";
-export { default as useServerAction } from "./use-server-action";
 declare const fnServerAction: {
     inputs: {
         string: ({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<import("..").InputAttributes<string>>) => import("..").InputAttributes<string>;
@@ -14,6 +13,7 @@ declare const fnServerAction: {
         number: ({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<import("..").InputAttributes<number>>) => import("..").InputAttributes<number>;
         port: ({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<import("..").InputAttributes<number>>) => import("..").InputAttributes<number>;
         numbers: ({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<import("..").InputAttributes<number[]>>) => import("..").InputAttributes<number[]>;
+        decimal: ({ name, defaultValue, type, autoComplete, inputMode, hidden, regexp, nullable, inputFormat, inputType, value, invalidMessage, }: Partial<import("..").InputAttributes<number>>) => import("..").InputAttributes<number>;
     };
     forms: {
         string: <INPUT>(data: FormData, form: import("..").ActionForm<INPUT>) => import("..").ActionFromString<INPUT>;
@@ -24,4 +24,4 @@ declare const fnServerAction: {
     };
     parser: typeof parser;
 };
-export { fnServerAction };
+export default fnServerAction;

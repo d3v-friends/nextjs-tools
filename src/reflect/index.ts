@@ -1,8 +1,6 @@
 import {Nullable} from "@root/index";
 import merge from "./merge";
 
-const numberRegexp = /^[0-9]+$/;
-
 const fnReflect = {
 	merge,
 	number: (v: unknown, initValue = 0): number => {

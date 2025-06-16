@@ -1,13 +1,11 @@
-import parse from "./parse";
-import searchParams from "./search-params";
+import parser from "./parser";
+import routerPush from "./router-push";
 import typedSearchParams from "./typed-search-params";
-import update from "./update";
 
 const fnParams = {
-	parse,
-	update,
-	searchParams,
 	typedSearchParams,
+	routerPush,
+	parser,
 };
 
 export default fnParams;

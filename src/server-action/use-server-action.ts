@@ -1,7 +1,6 @@
 "use client";
 import {useActionState} from "react";
-import {ActionForm, ActionState} from "..";
-import {fnServerAction} from "./index";
+import {ActionForm, ActionState, fnServerAction} from "..";
 
 type Action = (payload: FormData) => void;
 

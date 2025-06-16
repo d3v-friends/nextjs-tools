@@ -1,8 +1,10 @@
 "use client";
-export default function searchParams(
-	params: Record<string, string | number | null | undefined>,
-	host?: string
-): string {
+
+import {useRouter} from "next/navigation";
+
+export default function (params: Record<string, string | number | null | undefined>, host?: string) {
+	const router = useRouter();
+
 	const u = new URLSearchParams(window.location.search);
 	for (const key in params) {
 		if (params[key]) {
@@ -14,5 +16,5 @@ export default function searchParams(
 
 	host = host || window.location.pathname;
 
-	return `${host}?${u.toString()}`;
+	router.push(`${host}?${u.toString()}`);
 }
