@@ -1,7 +1,7 @@
 import {NextPageSearchParams} from "@root";
 
 type Params<P> = {
-	[K in keyof P]: (str: string) => (str: string) => P[K];
+	[K in keyof P]: (str: string) => P[K];
 };
 
 export default async function <P>(params: Promise<NextPageSearchParams>, form: Params<P>): Promise<P> {
