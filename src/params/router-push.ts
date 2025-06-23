@@ -4,7 +4,7 @@ import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-
 
 export default function (
 	router: AppRouterInstance,
-	params: Record<string, Date | string | number | null | undefined>,
+	params: Record<string, Date | string | number | null | undefined | string[] | number[]>,
 	host?: string
 ) {
 	const u = new URLSearchParams(window.location.search);
@@ -13,6 +13,10 @@ export default function (
 			if (params[key] instanceof Date) {
 				u.set(key, params[key].toISOString());
 				continue;
+			}
+
+			if (Array.isArray(params[key])) {
+				u.set(key, params[key].map((v) => String(v).trim()).join(","));
 			}
 
 			switch (typeof params[key]) {
