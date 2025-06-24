@@ -4,6 +4,7 @@ declare const fnSearchParams: {
     parser: {
         number: (def: number) => (str: string) => number;
         objectId: (def: string) => (str: string) => string;
+        string: (list: string[], def: string) => (str: string) => string;
     };
     nullableParser: {
         number: (str: string) => import("..").Nullable<number>;

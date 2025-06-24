@@ -14,6 +14,12 @@ const parser = {
 			return def;
 		};
 	},
+	string: (list: string[], def: string): FnParser<string> => {
+		return (str) => {
+			if (list.includes(str)) return str;
+			return def;
+		};
+	},
 };
 
 export default parser;
