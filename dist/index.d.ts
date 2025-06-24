@@ -11,6 +11,7 @@ export { default as fnReflect } from "./reflect";
 export { default as fnGraphQL } from "./graphql";
 export { default as fnError } from "./error";
 export { default as fnParams } from "./params";
+export { default as fnSearchParams } from "./search-params";
 export { default as fnCsv } from "./csv";
 export { default as fnServerAction } from "./server-action";
 export { default as useServerAction } from "./server-action/use-server-action";
