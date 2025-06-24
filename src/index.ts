@@ -15,6 +15,7 @@ export {default as fnError} from "./error";
 // params
 export {default as fnParams} from "./params";
 export {default as fnSearchParams} from "./search-params";
+export {default as fnSlice} from "./slice";
 
 // csv
 export {default as fnCsv} from "./csv";
