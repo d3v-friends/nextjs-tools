@@ -1,7 +1,7 @@
 export default function (record) {
     return (str) => {
         for (const key in record) {
-            if (key.includes(str))
+            if (str.includes(key))
                 return record[key];
         }
         return str;
