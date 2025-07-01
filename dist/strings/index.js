@@ -1,6 +1,0 @@
-import numberThousandSeparator from "./number-thousand-separator.js";
-const fnStrings = {
-    numberThousandSeparator,
-};
-export { fnStrings };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvc3RyaW5ncy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLHVCQUF1QixNQUFNLDZCQUE2QixDQUFDO0FBRWxFLE1BQU0sU0FBUyxHQUFHO0lBQ2pCLHVCQUF1QjtDQUN2QixDQUFDO0FBRUYsT0FBTyxFQUFDLFNBQVMsRUFBQyxDQUFDIn0=

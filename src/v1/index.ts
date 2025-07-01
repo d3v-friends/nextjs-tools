@@ -1,32 +1,20 @@
-import {StaticImageData} from "next/image";
-import {HTMLInputAutoCompleteAttribute, HTMLInputTypeAttribute, ReactNode} from "react";
+import {HTMLInputAutoCompleteAttribute, HTMLInputTypeAttribute} from "react";
 
+export * from "./cookies";
 export * from "./env";
 export * from "./fn";
 export * from "./logger";
 export * from "./pbkdf2";
-export * from "./strings";
 export {default as fnReflect} from "./reflect";
+export {default as fnGraphQL} from "./graphql";
 
 // params
-export {default as fnSlice} from "./slice";
+export {default as fnParams} from "./params";
+export {default as fnSearchParams} from "./search-params";
 
 // server-action
 export {default as fnServerAction} from "./server-action";
 export {default as useServerAction} from "./server-action/use-server-action";
-
-export type NextPageProps = Readonly<{
-	params: Promise<NextPageParams>;
-	searchParams: Promise<NextPageSearchParams>;
-}>;
-
-export type NextLayoutProps = Readonly<{children?: ReactNode}>;
-export type NextPageSearchParams = Record<string, string | undefined>;
-export type NextPageParams = {slug: string};
-export type Nullable<T> = T | null | undefined;
-export type ArrayElement<ArrayType extends readonly unknown[]> = ArrayType extends readonly (infer ElementType)[]
-	? ElementType
-	: never;
 
 export type HTMLInputModeAttribute = "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search";
 
@@ -68,27 +56,3 @@ export interface ActionState<INPUT, RESPONSE> {
 }
 
 export type ActionHandler<INPUT, RESPONSE> = (input: INPUT) => Promise<RESPONSE>;
-
-export type FnVoid = () => void;
-export const fnVoid: FnVoid = () => {};
-
-export type FnBase<T> = (v: T) => void;
-
-export type FnComponent<T> = (v: T) => ReactNode;
-export const fnVoidComponent: FnComponent<null> = () => "";
-
-export type ImgSrc = string | StaticImageData;
-
-export type Position = {
-	top: number;
-	left: number;
-	width: number;
-	height: number;
-};
-
-export const initPosition: Position = {
-	left: 0,
-	top: 0,
-	width: 0,
-	height: 0,
-};

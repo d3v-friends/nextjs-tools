@@ -1,0 +1,5 @@
+import { randomUUID } from "crypto";
+export default async function () {
+    return randomUUID();
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2V0LXNhbHQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvdjIvcGJrZGYyL2dldC1zYWx0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBQyxVQUFVLEVBQUMsTUFBTSxRQUFRLENBQUM7QUFFbEMsTUFBTSxDQUFDLE9BQU8sQ0FBQyxLQUFLO0lBQ25CLE9BQU8sVUFBVSxFQUFFLENBQUM7QUFDckIsQ0FBQyJ9

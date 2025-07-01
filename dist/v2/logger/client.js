@@ -1,0 +1,6 @@
+"use client";
+import { Logger } from "./logger.js";
+export default function () {
+    return new Logger(Logger.getLevel("NEXT_PUBLIC_LOG_LEVEL"));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2xpZW50LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL3YyL2xvZ2dlci9jbGllbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDO0FBQ2IsT0FBTyxFQUFDLE1BQU0sRUFBQyxNQUFNLG1CQUFtQixDQUFDO0FBRXpDLE1BQU0sQ0FBQyxPQUFPO0lBQ2IsT0FBTyxJQUFJLE1BQU0sQ0FBQyxNQUFNLENBQUMsUUFBUSxDQUFDLHVCQUF1QixDQUFDLENBQUMsQ0FBQztBQUM3RCxDQUFDIn0=
