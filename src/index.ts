@@ -1,104 +1,36 @@
-import {StaticImageData} from "next/image";
-import {HTMLInputAutoCompleteAttribute, HTMLInputTypeAttribute, ReactNode} from "react";
+export * from "./v1";
+export * from "./v2";
 
-export * from "./cookies";
-export * from "./css";
-export * from "./env";
-export * from "./fn";
-export * from "./logger";
-export * from "./pbkdf2";
-export * from "./strings";
-export {default as fnReflect} from "./reflect";
-export {default as fnGraphQL} from "./graphql";
-export {default as fnError} from "./error";
-
-// params
-export {default as fnParams} from "./params";
-export {default as fnSearchParams} from "./search-params";
-export {default as fnSlice} from "./slice";
-
-// csv
-export {default as fnCsv} from "./csv";
-
-// server-action
-export {default as fnServerAction} from "./server-action";
-export {default as useServerAction} from "./server-action/use-server-action";
-export {default as fnRegexp} from "./server-action/regexp";
-
-export type NextPageProps = Readonly<{
-	params: Promise<NextPageParams>;
-	searchParams: Promise<NextPageSearchParams>;
-}>;
-
-export type NextLayoutProps = Readonly<{children?: ReactNode}>;
-export type NextPageSearchParams = Record<string, string | undefined>;
-export type NextPageParams = {slug: string};
+// type
 export type Nullable<T> = T | null | undefined;
 export type ArrayElement<ArrayType extends readonly unknown[]> = ArrayType extends readonly (infer ElementType)[]
 	? ElementType
 	: never;
 
-export type HTMLInputModeAttribute = "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search";
+// search params
+export type NextPageSearchParams = Record<string, string | undefined>;
+export type NextPageParams = {slug: string};
 
-export type InputType = "string" | "number" | "boolean";
-export type InputFormat = "text" | "csv";
-
-export interface HTMLInputAttributes {
-	name?: string;
-	defaultValue?: string;
-	type?: HTMLInputTypeAttribute;
-	autoComplete?: HTMLInputAutoCompleteAttribute;
-	inputMode?: HTMLInputModeAttribute;
-	hidden?: boolean;
+// graphql
+export interface DocumentTypeDecoration<TResult, TVariables> {
+	__apiType?: (variables: TVariables) => TResult;
 }
 
-export interface InputAttributes<T> extends HTMLInputAttributes {
-	regexp?: string;
-	nullable?: boolean;
-	inputFormat?: InputFormat;
-	inputType?: InputType;
-	value: T;
-	invalidMessage?: string;
+export interface Document<TResult, TVariables> {
+	toString(): string & DocumentTypeDecoration<TResult, TVariables>;
 }
 
-export type ActionForm<INPUT> = {
-	[K in keyof INPUT]: InputAttributes<INPUT[K]>;
+export type GraphqlError = {
+	errors: {
+		message: string;
+		path: string[];
+	}[];
+	data: unknown;
 };
 
-export type ActionFromString<INPUT> = {[K in keyof INPUT]: string};
+export type Header = Record<string, string>;
 
-export type ActionFormValue<INPUT> = {input: INPUT; err?: string};
-
-export interface ActionState<INPUT, RESPONSE> {
-	time: number;
-	value: INPUT;
-	string: {[K in keyof INPUT]: string};
-	err?: string;
-	response?: RESPONSE;
-}
-
-export type ActionHandler<INPUT, RESPONSE> = (input: INPUT) => Promise<RESPONSE>;
-
-export type FnVoid = () => void;
-export const fnVoid: FnVoid = () => {};
-
-export type FnBase<T> = (v: T) => void;
-
-export type FnComponent<T> = (v: T) => ReactNode;
-export const fnVoidComponent: FnComponent<null> = () => "";
-
-export type ImgSrc = string | StaticImageData;
-
-export type Position = {
-	top: number;
-	left: number;
-	width: number;
-	height: number;
-};
-
-export const initPosition: Position = {
-	left: 0,
-	top: 0,
-	width: 0,
-	height: 0,
+export type QueryResult<TResult> = {
+	data: TResult;
+	error?: Error;
 };

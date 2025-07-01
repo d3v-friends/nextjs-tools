@@ -12,6 +12,7 @@
     "url": "https://github.com/d3v-friends/nextjs-tools"
   },
   "dependencies": {
+    "decimal.js": "^10.5.0",
     "pbkdf2": "3.1.2"
   },
   "devDependencies": {
@@ -23,7 +24,7 @@
     "prettier": "3.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "typescript": "5.8.3",
-    "resolve-tspaths": "0.8.23"
+    "resolve-tspaths": "0.8.23",
+    "typescript": "5.8.3"
   }
 }

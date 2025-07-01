@@ -1,4 +1,5 @@
-import {fnRegexp, InputAttributes} from "..";
+import {fnRegexp} from "@v2/index";
+import {InputAttributes} from "..";
 
 function string({
 	name,
