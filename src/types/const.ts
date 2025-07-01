@@ -1,4 +1,4 @@
-import {FnComponent, FnVoid, Position} from "..";
+import {FnComponent, FnVoid, Position} from "./utillity";
 
 export const errEmptyGraphqlResponse = "empty_graphql_response";
 export const errUnexpectedGraphqlError = "unexpected_graphql_error";
