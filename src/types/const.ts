@@ -1,4 +1,4 @@
-import {FnComponent, FnVoid, Position} from "@root";
+import {FnComponent, FnVoid, Position} from "..";
 
 export const errEmptyGraphqlResponse = "empty_graphql_response";
 export const errUnexpectedGraphqlError = "unexpected_graphql_error";

@@ -1,6 +1,6 @@
 {
   "name": "nextjs-tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
     "tag": "sh ./script/tag.sh $(jq \".version\" package.json | tr -d '\"')"

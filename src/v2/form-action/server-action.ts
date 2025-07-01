@@ -1,6 +1,6 @@
 "use server";
 
-import {getLogger} from "@root";
+import {getLogger} from "../..";
 import fnForm from "./form";
 import {ActionState, Form, FormValue, ServerAction} from "./types";
 

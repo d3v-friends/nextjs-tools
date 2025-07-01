@@ -1,7 +1,5 @@
 import deduplicate from "./deduplicate";
 
-const fnSlice = {
+export default {
 	deduplicate,
 };
-
-export default fnSlice;

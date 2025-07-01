@@ -1,5 +1,5 @@
 "use client";
-import {LogLevel} from "@root";
+import {LogLevel} from "../..";
 
 export class Logger {
 	constructor(public readonly level = LogLevel.INFO) {}

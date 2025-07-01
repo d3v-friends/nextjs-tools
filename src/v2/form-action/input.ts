@@ -1,4 +1,4 @@
-import {fnParser, fnRegexp} from "@root";
+import {fnParser, fnRegexp} from "../..";
 import {EntryParser, Input, InputValue} from "./types";
 
 type RegexpInput = Partial<Omit<Input<string>, "entryParser">> & {regexp: string};

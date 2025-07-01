@@ -1,5 +1,5 @@
 "use server";
-import {NextPageSearchParams} from "@root";
+import {NextPageSearchParams} from "../..";
 
 type Params<P> = {
 	[K in keyof P]: (str: string) => P[K];

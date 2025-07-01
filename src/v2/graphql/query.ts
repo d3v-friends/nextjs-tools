@@ -1,4 +1,4 @@
-import {Document, Header, QueryResult} from "@root";
+import {Document, Header, QueryResult} from "../..";
 import fetch from "./fetch";
 
 export default async function <TResult, TVariables>(

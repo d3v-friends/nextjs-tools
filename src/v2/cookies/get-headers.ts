@@ -1,4 +1,5 @@
 "use server";
+import {headers} from "next/headers";
 import {
 	contentTypeApplicationJson,
 	getAuth,
@@ -6,8 +7,7 @@ import {
 	httpHeaderContentType,
 	httpHeaderUserAgent,
 	httpXForwardedHost,
-} from "@root";
-import {headers} from "next/headers";
+} from "../..";
 
 export default async function (header?: Record<string, string>): Promise<Record<string, string>> {
 	const h = await headers();

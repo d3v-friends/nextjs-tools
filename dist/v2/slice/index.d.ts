@@ -1,5 +1,5 @@
 import deduplicate from "./deduplicate";
-declare const fnSlice: {
+declare const _default: {
     deduplicate: typeof deduplicate;
 };
-export default fnSlice;
+export default _default;

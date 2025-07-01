@@ -1,4 +1,4 @@
-import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError, Header} from "@root";
+import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError, Header} from "../..";
 
 type Args<TResult, TVariables> = {
 	host: string;
