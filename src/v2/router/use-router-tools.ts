@@ -35,6 +35,10 @@ class RouterTools {
 		host = host || window.location.pathname;
 		this.router.push(`${host}?${u.toString()}`);
 	}
+
+	refresh() {
+		this.router.refresh();
+	}
 }
 
 export default function (router: AppRouterInstance): RouterTools {
