@@ -2,7 +2,7 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 declare class RouterTools {
     readonly router: AppRouterInstance;
     constructor(router: AppRouterInstance);
-    push(router: AppRouterInstance, searchParams: Record<string, Date | string | number | null | undefined | string[] | number[]>, host?: string): void;
+    push(searchParams: Record<string, Date | string | number | null | undefined | string[] | number[]>, host?: string): void;
 }
 export default function (router: AppRouterInstance): RouterTools;
 export {};

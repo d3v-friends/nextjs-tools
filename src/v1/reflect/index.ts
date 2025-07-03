@@ -1,4 +1,4 @@
-import {Nullable} from "@root/index";
+import {Nullable} from "../..";
 import merge from "./merge";
 
 const fnReflect = {

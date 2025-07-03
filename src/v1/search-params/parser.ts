@@ -1,4 +1,4 @@
-import {fnReflect, fnRegexp} from "@root";
+import {fnReflect, fnRegexp} from "../..";
 
 type FnParser<T> = (str: string) => T;
 

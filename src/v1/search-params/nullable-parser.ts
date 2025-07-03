@@ -1,4 +1,4 @@
-import {fnReflect, fnRegexp, Nullable} from "@root";
+import {fnReflect, fnRegexp, Nullable} from "../../index";
 
 const parser = {
 	number: (str: string): Nullable<number> => {
