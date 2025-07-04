@@ -13,7 +13,7 @@ export const initPosition = {
     width: 0,
     height: 0,
 };
-export const InitCoordinate = {
+export const initCoordinate = {
     top: 0,
     left: 0,
 };

@@ -9,4 +9,4 @@ export declare const contentTypeApplicationJson = "Application/json";
 export declare const fnVoid: FnVoid;
 export declare const fnVoidComponent: FnComponent<null>;
 export declare const initPosition: Position;
-export declare const InitCoordinate: Coordinate;
+export declare const initCoordinate: Coordinate;

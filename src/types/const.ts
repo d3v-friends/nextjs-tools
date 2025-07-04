@@ -16,7 +16,7 @@ export const initPosition: Position = {
 	width: 0,
 	height: 0,
 };
-export const InitCoordinate: Coordinate = {
+export const initCoordinate: Coordinate = {
 	top: 0,
 	left: 0,
 };
