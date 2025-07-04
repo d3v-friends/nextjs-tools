@@ -1,4 +1,4 @@
-import { FnComponent, FnVoid, Position } from "./utillity";
+import { Coordinate, FnComponent, FnVoid, Position } from "./utillity";
 export declare const errEmptyGraphqlResponse = "empty_graphql_response";
 export declare const errUnexpectedGraphqlError = "unexpected_graphql_error";
 export declare const httpHeaderAuthorization = "Authorization";
@@ -9,3 +9,4 @@ export declare const contentTypeApplicationJson = "Application/json";
 export declare const fnVoid: FnVoid;
 export declare const fnVoidComponent: FnComponent<null>;
 export declare const initPosition: Position;
+export declare const InitCoordinate: Coordinate;

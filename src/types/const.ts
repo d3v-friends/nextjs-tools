@@ -1,4 +1,4 @@
-import {FnComponent, FnVoid, Position} from "./utillity";
+import {Coordinate, FnComponent, FnVoid, Position} from "./utillity";
 
 export const errEmptyGraphqlResponse = "empty_graphql_response";
 export const errUnexpectedGraphqlError = "unexpected_graphql_error";
@@ -15,4 +15,8 @@ export const initPosition: Position = {
 	top: 0,
 	width: 0,
 	height: 0,
+};
+export const InitCoordinate: Coordinate = {
+	top: 0,
+	left: 0,
 };

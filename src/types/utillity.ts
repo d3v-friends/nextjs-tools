@@ -16,3 +16,7 @@ export type Position = {
 	width: number;
 	height: number;
 };
+export type Coordinate = {
+	top: number;
+	left: number;
+};
