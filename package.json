@@ -1,6 +1,6 @@
 {
   "name": "nextjs-tools",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "scripts": {
     "dev": "source .env && PORT=$PORT NODE_OPTIONS='--inspect --enable-source-maps=true' next dev --turbopack",
     "tag": "sh ./script/tag.sh $(jq \".version\" package.json | tr -d '\"')"
@@ -21,7 +21,7 @@
     "@types/pbkdf2": "3.1.2",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
-    "next": "15.3.0",
+    "next": "15.3.5",
     "postcss": "8.5.6",
     "prettier": "3.5.3",
     "react": "19.1.0",

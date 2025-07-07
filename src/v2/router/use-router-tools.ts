@@ -1,10 +1,19 @@
 "use client";
-import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
+import {
+	AppRouterInstance,
+	NavigateOptions,
+	PrefetchOptions,
+} from "next/dist/shared/lib/app-router-context.shared-runtime";
+import {useRouter} from "next/navigation";
 
-class RouterTools {
+class RouterTools implements AppRouterInstance {
 	constructor(public readonly router: AppRouterInstance) {}
 
-	push(searchParams: Record<string, Date | string | number | null | undefined | string[] | number[]>, host?: string) {
+	pushBySearchParams(
+		searchParams: Record<string, Date | string | number | null | undefined | string[] | number[]>,
+		host?: string,
+		options?: NavigateOptions
+	) {
 		const u = new URLSearchParams(window.location.search);
 		for (const key in searchParams) {
 			if (searchParams[key]) {
@@ -33,14 +42,35 @@ class RouterTools {
 		}
 
 		host = host || window.location.pathname;
-		this.router.push(`${host}?${u.toString()}`);
+		this.router.push(`${host}?${u.toString()}`, options);
+	}
+
+	push(href: string, options?: NavigateOptions): void {
+		this.router.push(href, options);
 	}
 
 	refresh() {
 		this.router.refresh();
 	}
+
+	back() {
+		this.router.back();
+	}
+
+	forward(): void {
+		this.router.forward();
+	}
+
+	replace(href: string, options?: NavigateOptions): void {
+		this.router.replace(href, options);
+	}
+
+	prefetch(href: string, options?: PrefetchOptions): void {
+		return this.router.prefetch(href, options);
+	}
 }
 
-export default function (router: AppRouterInstance): RouterTools {
+export default function (): RouterTools {
+	const router = useRouter();
 	return new RouterTools(router);
 }
