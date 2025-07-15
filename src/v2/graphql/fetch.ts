@@ -1,13 +1,13 @@
 import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError, Header} from "../..";
 
-type Args<TResult, TVariables> = {
+export type FetchArgs<TResult, TVariables> = {
 	host: string;
 	header?: Header;
 	query: Document<TResult, TVariables>;
 	variables?: TVariables;
 };
 
-export default async function <TResult, TVariables>(args: Args<TResult, TVariables>): Promise<TResult> {
+export default async function <TResult, TVariables>(args: FetchArgs<TResult, TVariables>): Promise<TResult> {
 	// todo 클라이언트 컴포넌트에서 쿼리를 불러오면 array 로 넘어오는 문제가 있는데 원인을 밝히지 못함.추후 알아보기
 	let query = args.query.toString();
 

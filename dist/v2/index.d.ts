@@ -8,6 +8,7 @@ export { default as fnError } from "./error";
 export { default as sleep } from "./fn/sleep";
 export { default as fetch } from "./graphql/fetch";
 export { default as query } from "./graphql/query";
+export { default as fnInput } from "./input";
 export { default as useLogger } from "./logger/client";
 export { default as getLogger } from "./logger/server";
 export { default as fnParser } from "./parser";

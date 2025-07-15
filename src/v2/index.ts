@@ -20,6 +20,9 @@ export {default as sleep} from "./fn/sleep";
 export {default as fetch} from "./graphql/fetch";
 export {default as query} from "./graphql/query";
 
+// input
+export {default as fnInput} from "./input";
+
 // logger
 export {default as useLogger} from "./logger/client";
 export {default as getLogger} from "./logger/server";
