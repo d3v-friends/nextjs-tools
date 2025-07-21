@@ -17,9 +17,16 @@ function newSalt(): string {
 	return randomUUID();
 }
 
+function run(password: string): {salt: string; saltedPassword: string} {
+	const salt = newSalt();
+	const saltedPassword = salting({salt, password});
+	return {salt, saltedPassword};
+}
+
 const fnPbkdf2 = {
 	salting,
 	newSalt,
+	run,
 };
 
 export {fnPbkdf2};

@@ -5,5 +5,6 @@ declare const _default: {
     decimal: (def?: number) => Parser<number>;
     string: (def?: string) => Parser<string>;
     pattern: (regexp: string, def?: string) => Parser<string>;
+    iso3339: (def?: string) => Parser<string>;
 };
 export default _default;
