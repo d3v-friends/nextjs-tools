@@ -1,5 +1,3 @@
-"use client";
-
 function trim(str: string): string {
 	str = str.replaceAll("\n", " ");
 	str = str.replaceAll("\t", " ");
