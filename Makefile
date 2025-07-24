@@ -6,6 +6,6 @@ server:
 export:
 	sh ./script/build.sh
 tag:
-	sh ./script/tag.sh $(shell jq ".version" package.json | tr -d '"')
+	sh ./script/tag.sh $(shell cat ./version)
 prod:
 	sh ./script/prod.sh

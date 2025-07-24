@@ -1,4 +1,5 @@
 "use server";
+import {getLogger} from "../../v2";
 import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError, Header} from "./types";
 
 type ExecArgs<TResult, TVariables> = {
@@ -9,6 +10,8 @@ type ExecArgs<TResult, TVariables> = {
 };
 
 export default async function <TResult, TVariables>(args: ExecArgs<TResult, TVariables>): Promise<TResult> {
+	const logger = await getLogger();
+
 	// todo 클라이언트 컴포넌트에서 쿼리를 불러오면 array 로 넘어오는 문제가 있는데 원인을 밝히지 못함.추후 알아보기
 	let query = args.query.toString();
 
@@ -18,6 +21,8 @@ export default async function <TResult, TVariables>(args: ExecArgs<TResult, TVar
 			query = `${query}${str}`;
 		}
 	}
+
+	logger.trace("exec", query, args.variables);
 
 	const body = {
 		method: "POST",
@@ -43,6 +48,7 @@ export default async function <TResult, TVariables>(args: ExecArgs<TResult, TVar
 
 			return res.data;
 		default:
+			logger.trace("error", response);
 			throw new Error(`${errUnexpectedGraphqlError}: value=${JSON.stringify(response)}`);
 	}
 }
