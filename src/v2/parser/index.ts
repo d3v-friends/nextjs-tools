@@ -1,4 +1,4 @@
-import {fnRegexp} from "@v2/index";
+import {fnRegexp} from "../..";
 
 const fnParser = {
 	number: (v: unknown, initValue = 0): number => {

@@ -1,0 +1,13 @@
+import { fnReflect, fnRegexp } from "../../index.js";
+const parser = {
+    number: (str) => {
+        return fnReflect.numberNull(str);
+    },
+    objectId: (str) => {
+        if (new RegExp(fnRegexp.objectId).test(str))
+            return str;
+        return null;
+    },
+};
+export default parser;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibnVsbGFibGUtcGFyc2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL3YxL3NlYXJjaC1wYXJhbXMvbnVsbGFibGUtcGFyc2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBQyxTQUFTLEVBQUUsUUFBUSxFQUFXLE1BQU0sYUFBYSxDQUFDO0FBRTFELE1BQU0sTUFBTSxHQUFHO0lBQ2QsTUFBTSxFQUFFLENBQUMsR0FBVyxFQUFvQixFQUFFO1FBQ3pDLE9BQU8sU0FBUyxDQUFDLFVBQVUsQ0FBQyxHQUFHLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBQ0QsUUFBUSxFQUFFLENBQUMsR0FBVyxFQUFvQixFQUFFO1FBQzNDLElBQUksSUFBSSxNQUFNLENBQUMsUUFBUSxDQUFDLFFBQVEsQ0FBQyxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUM7WUFBRSxPQUFPLEdBQUcsQ0FBQztRQUN4RCxPQUFPLElBQUksQ0FBQztJQUNiLENBQUM7Q0FDRCxDQUFDO0FBRUYsZUFBZSxNQUFNLENBQUMifQ==

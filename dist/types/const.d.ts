@@ -1,0 +1,12 @@
+import { Coordinate, FnComponent, FnVoid, Position } from "./utillity";
+export declare const errEmptyGraphqlResponse = "empty_graphql_response";
+export declare const errUnexpectedGraphqlError = "unexpected_graphql_error";
+export declare const httpHeaderAuthorization = "Authorization";
+export declare const httpHeaderContentType = "Content-Type";
+export declare const httpHeaderUserAgent = "User-Agent";
+export declare const httpXForwardedHost = "X-Forwarded-Host";
+export declare const contentTypeApplicationJson = "Application/json";
+export declare const fnVoid: FnVoid;
+export declare const fnVoidComponent: FnComponent<null>;
+export declare const initPosition: Position;
+export declare const initCoordinate: Coordinate;

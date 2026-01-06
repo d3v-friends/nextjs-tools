@@ -1,0 +1,5 @@
+import numberThousandSeparator from "./number-thousand-separator.js";
+export default {
+    numberThousandSeparator,
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvdjIvc3RyaW5ncy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLHVCQUF1QixNQUFNLDZCQUE2QixDQUFDO0FBRWxFLGVBQWU7SUFDZCx1QkFBdUI7Q0FDdkIsQ0FBQyJ9
