@@ -1,6 +1,5 @@
-import {fnEnv} from "@root";
 import {Viewport} from "next";
-import {ReactNode} from "react";
+import {NextLayoutProps} from "@root";
 import "./index.scss";
 
 export const viewport: Viewport = {
@@ -8,9 +7,9 @@ export const viewport: Viewport = {
 	initialScale: 1.0,
 };
 
-export default async function ({children}: Readonly<{children?: ReactNode}>) {
+export default async function ({children}: NextLayoutProps) {
 	return (
-		<html lang={await fnEnv.server.string("HTML_LANG", "en")}>
+		<html lang="ko">
 			<body className={"font-12 lg:font-16"}>{children}</body>
 		</html>
 	);

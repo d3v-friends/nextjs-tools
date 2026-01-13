@@ -1,8 +1,9 @@
 import {StaticImageData} from "next/image";
 import {ReactNode} from "react";
 
-export type Nullable<T> = T | null | undefined;
+export type Nullable<T> = T | null;
 export type Undefined<T> = T | undefined;
+export type Unknown<T> = T | unknown;
 export type ArrayElement<ArrayType extends readonly unknown[]> = ArrayType extends readonly (infer ElementType)[]
 	? ElementType
 	: never;
