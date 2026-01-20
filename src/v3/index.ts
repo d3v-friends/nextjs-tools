@@ -8,6 +8,11 @@ export {default as csv} from "./csv";
 export {default as gqlFetch} from "./graphql/fetch";
 export {default as gqlQuery} from "./graphql/query";
 
+// logger
+export * from "./logger/types";
+export {default as useLogger} from "./logger/use-logger";
+export {default as getLogger} from "./logger/get-logger";
+
 // password
 export {default as password} from "./password";
 
