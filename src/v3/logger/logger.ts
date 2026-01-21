@@ -1,4 +1,3 @@
-"use client";
 import {LogLevel} from "./types";
 
 export class Logger {
