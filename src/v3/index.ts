@@ -4,6 +4,13 @@ export {default as concat} from "./class-names/concat";
 // csv
 export {default as csv} from "./csv";
 
+// event
+export * from "./event/types";
+export {default as getMouseButtonType} from "./event/get-mouse-button-type";
+
+// fn
+export {default as sleep} from "./fn/sleep";
+
 // graphql
 export {default as gqlFetch} from "./graphql/fetch";
 export {default as gqlQuery} from "./graphql/query";
