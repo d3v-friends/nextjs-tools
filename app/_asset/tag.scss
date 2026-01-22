@@ -1,0 +1,58 @@
+@layer base {
+  button {
+    border: 1px solid black;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+
+  button:hover {
+    background-color: #d5d5d5;
+  }
+
+  button:active {
+    background-color: #b8b8b8;
+  }
+
+  button:disabled {
+    background-color: #f1a7a7;
+    text-decoration: line-through;
+  }
+
+
+  article {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+  }
+
+  section {
+    padding: 1rem;
+    border: 1px solid black;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.08);
+  }
+
+  input {
+    outline: 1px solid black;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.4rem;
+  }
+
+  h1 {
+    font-size: theme("text-4xl");
+    font-weight: bolder;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: theme("text-3xl");
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: theme("text-2xl");
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+  }
+}

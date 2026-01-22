@@ -9,13 +9,16 @@ export const httpXForwardedHost = "X-Forwarded-Host";
 export const contentTypeApplicationJson = "Application/json";
 
 export const fnVoid: FnVoid = () => {};
+
 export const fnVoidComponent: FnComponent<null> = () => "";
+
 export const initPosition: Position = {
 	left: 0,
 	top: 0,
 	width: 0,
 	height: 0,
 };
+
 export const initCoordinate: Coordinate = {
 	top: 0,
 	left: 0,
