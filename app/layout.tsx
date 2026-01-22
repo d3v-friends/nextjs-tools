@@ -21,7 +21,7 @@ export default async function ({children}: NextLayoutProps) {
 					<aside className="w-1/5">
 						<Aside />
 					</aside>
-					<section className="w-4/5">{children}</section>
+					<div className="w-4/5">{children}</div>
 				</main>
 			</body>
 		</html>
@@ -37,6 +37,7 @@ function Aside({}: Readonly<AsideProps>) {
 		<div className="flex flex-col">
 			<h1 className="text-xl">Function</h1>
 			<Link href="/fn/logger">* logger</Link>
+			<Link href="/fn/server-action">* server-action</Link>
 		</div>
 	);
 }

@@ -10,6 +10,8 @@ declare const _default: {
     objectId: string;
     port: string;
     decimal: string;
-    number: string;
+    integer: string;
+    naturalNumber: RegExp;
+    negativeNumber: RegExp;
 };
 export default _default;

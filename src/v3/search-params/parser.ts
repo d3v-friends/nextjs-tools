@@ -9,16 +9,16 @@ export default {
 			return def ?? "";
 		};
 	},
-	number: (def?: number): Parser<number> => {
+	naturalNumber: (def?: number): Parser<number> => {
 		return (str) => {
-			if (new RegExp(regexp.number).test(str)) return Number(str);
+			if (new RegExp(regexp.naturalNumber).test(str)) return Number(str);
 			return def ?? 0;
 		};
 	},
-	decimal: (def?: number): Parser<number> => {
+	decimal: (def?: string): Parser<string> => {
 		return (str) => {
-			if (new RegExp(regexp.decimal).test(str)) return Number(str);
-			return def ?? 0;
+			if (new RegExp(regexp.decimal).test(str)) return str;
+			return def ?? "0.0";
 		};
 	},
 	string: (def?: string): Parser<string> => {
