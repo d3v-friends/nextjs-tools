@@ -42,4 +42,11 @@ export default {
 			return def ?? "";
 		};
 	},
+	pagination: (def?: number): Parser<number> => {
+		return (str) => {
+			if (str === "") return def ?? 0;
+			if (new RegExp(/^(0|[1-9]\d*)$/).test(str)) return parseInt(str);
+			return def ?? 0;
+		};
+	},
 };

@@ -6,5 +6,6 @@ declare const _default: {
     string: (def?: string) => Parser<string>;
     pattern: (regexp: string, def?: string) => Parser<string>;
     rfc3339: (def?: string) => Parser<string>;
+    pagination: (def?: number) => Parser<number>;
 };
 export default _default;
