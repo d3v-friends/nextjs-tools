@@ -1,7 +1,7 @@
 import {FormType, Input, InputParser, InputProperty} from "./types";
 import {DateTime} from "luxon";
 import regexp from "../regexp";
-import {Nullable} from "@src/types";
+import {DatePeriod, Nullable} from "../../types";
 
 function isInvalid(str: RegExp | string, value: string, message: string) {
 	if (new RegExp(str).test(value)) {
@@ -289,6 +289,32 @@ function nullableNegativeNumber(i: InputProperty = {}): Input<Nullable<number>> 
 	};
 }
 
+function datePeriod(i: InputProperty = {}): Input<DatePeriod> {
+	return {
+		parser: (str) => {
+			const res: DatePeriod = {};
+			if (str === null) return res;
+
+			const ls = str.split(",");
+			switch (ls.length) {
+				case 1:
+					isInvalid(regexp.rfc3339Time, ls[0], "invalid_date_period_from");
+					res.from = DateTime.fromISO(ls[0]).toUTC().toJSDate();
+					break;
+				case 2:
+					isInvalid(regexp.rfc3339Time, ls[0], "invalid_date_period_from");
+					isInvalid(regexp.rfc3339Time, ls[1], "invalid_date_period_to");
+					res.from = DateTime.fromISO(ls[0]).toUTC().toJSDate();
+					res.to = DateTime.fromISO(ls[1]).toUTC().toJSDate();
+					break;
+			}
+
+			return res;
+		},
+		...i,
+	};
+}
+
 export default {
 	create,
 	boolean,
@@ -312,4 +338,5 @@ export default {
 	negativeNumber,
 	nullableNegativeNumber,
 	field,
+	datePeriod,
 };

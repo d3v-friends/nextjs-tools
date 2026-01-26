@@ -17,7 +17,13 @@ export type Position = {
 	width: number;
 	height: number;
 };
+
 export type Coordinate = {
 	top: number;
 	left: number;
 };
+
+export type DatePeriod = Partial<{
+	from: Date;
+	to: Date;
+}>;

@@ -18,3 +18,7 @@ export type Coordinate = {
     top: number;
     left: number;
 };
+export type DatePeriod = Partial<{
+    from: Date;
+    to: Date;
+}>;

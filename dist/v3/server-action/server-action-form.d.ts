@@ -1,5 +1,5 @@
 import { FormType, Input, InputParser, InputProperty } from "./types";
-import { Nullable } from "../../types";
+import { DatePeriod, Nullable } from "../../types";
 declare function field<T>(parser: InputParser<T>, i?: InputProperty): Input<T>;
 declare function create<I extends object>(form: FormType<I>): FormType<I>;
 declare function boolean(i?: InputProperty): Input<boolean>;
@@ -22,6 +22,7 @@ declare function naturalNumber(i?: InputProperty): Input<number>;
 declare function nullableNaturalNumber(i?: InputProperty): Input<Nullable<number>>;
 declare function negativeNumber(i?: InputProperty): Input<number>;
 declare function nullableNegativeNumber(i?: InputProperty): Input<Nullable<number>>;
+declare function datePeriod(i?: InputProperty): Input<DatePeriod>;
 declare const _default: {
     create: typeof create;
     boolean: typeof boolean;
@@ -45,5 +46,6 @@ declare const _default: {
     negativeNumber: typeof negativeNumber;
     nullableNegativeNumber: typeof nullableNegativeNumber;
     field: typeof field;
+    datePeriod: typeof datePeriod;
 };
 export default _default;
