@@ -35,6 +35,26 @@ function create<I extends object>(form: FormType<I>): FormType<I> {
 
 /* ---------------------------------------------------------------------------------------------------- */
 
+function string(i: InputProperty = {}): Input<string> {
+	return {
+		parser: (str) => {
+			str = isNull(str, "no_string");
+			return str;
+		},
+		...i,
+	};
+}
+
+function nullableString(i: InputProperty = {}): Input<Nullable<string>> {
+	return {
+		parser: (str) => {
+			if (str === null) return null;
+			return str;
+		},
+		...i,
+	};
+}
+
 function boolean(i: InputProperty = {}): Input<boolean> {
 	return {
 		regexp: regexp.boolean,
@@ -317,6 +337,8 @@ function datePeriod(i: InputProperty = {}): Input<DatePeriod> {
 
 export default {
 	create,
+	string,
+	nullableString,
 	boolean,
 	nullableBoolean,
 	username,

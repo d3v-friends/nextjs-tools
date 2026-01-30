@@ -2,6 +2,8 @@ import { FormType, Input, InputParser, InputProperty } from "./types";
 import { DatePeriod, Nullable } from "../../types";
 declare function field<T>(parser: InputParser<T>, i?: InputProperty): Input<T>;
 declare function create<I extends object>(form: FormType<I>): FormType<I>;
+declare function string(i?: InputProperty): Input<string>;
+declare function nullableString(i?: InputProperty): Input<Nullable<string>>;
 declare function boolean(i?: InputProperty): Input<boolean>;
 declare function nullableBoolean(i?: InputProperty): Input<Nullable<boolean>>;
 declare function username(i?: InputProperty): Input<string>;
@@ -25,6 +27,8 @@ declare function nullableNegativeNumber(i?: InputProperty): Input<Nullable<numbe
 declare function datePeriod(i?: InputProperty): Input<DatePeriod>;
 declare const _default: {
     create: typeof create;
+    string: typeof string;
+    nullableString: typeof nullableString;
     boolean: typeof boolean;
     nullableBoolean: typeof nullableBoolean;
     username: typeof username;
