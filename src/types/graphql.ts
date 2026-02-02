@@ -6,6 +6,14 @@ export interface Document<TResult, TVariables> {
 	toString(): string & DocumentTypeDecoration<TResult, TVariables>;
 }
 
+export type GraphqlResponse<TResult> = {
+	data?: TResult;
+	errors?: {
+		message: string;
+		path: string[];
+	}[];
+};
+
 export type GraphqlError = {
 	errors: {
 		message: string;

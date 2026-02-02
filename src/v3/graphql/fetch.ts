@@ -1,48 +1,48 @@
 "use server";
-import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError, Header} from "../..";
+import {Document, GraphqlError, GraphqlResponse, Header} from "../..";
 
 export type FetchArgs<TResult, TVariables> = {
 	host: string;
-	header?: Header;
 	query: Document<TResult, TVariables>;
+	header?: Header;
 	variables?: TVariables;
 };
 
 export default async function <TResult, TVariables>(args: FetchArgs<TResult, TVariables>): Promise<TResult> {
-	// todo 클라이언트 컴포넌트에서 쿼리를 불러오면 array 로 넘어오는 문제가 있는데 원인을 밝히지 못함.추후 알아보기
-	let query = args.query.toString();
-
-	if (args.query instanceof Array) {
-		query = "";
-		for (let str of args.query) {
-			query = `${query}${str}`;
-		}
-	}
+	args.header = args.header || {};
+	args.header["Content-Type"] = "application/json";
 
 	const body = {
 		method: "POST",
 		headers: args.header,
 		body: JSON.stringify({
-			query,
+			query: toString(args.query),
 			variables: args.variables,
 		}),
 	};
 
 	const response = await fetch(args.host, body);
+	const res: GraphqlResponse<TResult> = await response.json();
 
 	switch (response.status) {
 		case 200:
-			const res: any = await response.json();
-			if (res.hasOwnProperty("errors")) {
-				throw new Error((res as GraphqlError).errors[0].message);
-			}
-
-			if (!res.hasOwnProperty("data")) {
-				throw new Error(`${errEmptyGraphqlResponse}: value=${JSON.stringify(res)}`);
+			if (!res.data) {
+				throw new Error(`empty_data: value=${JSON.stringify(res)}`);
 			}
 
 			return res.data;
 		default:
-			throw new Error(`${errUnexpectedGraphqlError}: value=${JSON.stringify(response)}`);
+			if (res.errors) {
+				throw new Error((res as GraphqlError).errors[0].message);
+			}
+			throw new Error(`unexpected_graphql_error: value=${JSON.stringify(res)}`);
 	}
+}
+
+function toString<TResult, TVariables>(value: Document<TResult, TVariables>): string {
+	const query = value.toString();
+	if (Array.isArray(query)) {
+		return query.join("");
+	}
+	return query;
 }
