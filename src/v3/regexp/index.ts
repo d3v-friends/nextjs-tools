@@ -14,4 +14,5 @@ export default {
 	integer: "^-?[0-9]\\d*$",
 	naturalNumber: /[1-9]\d*/g,
 	negativeNumber: /^-[1-9]\d*$/g,
+	exist: /^.+$/,
 };

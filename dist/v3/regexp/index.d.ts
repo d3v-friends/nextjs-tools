@@ -13,5 +13,6 @@ declare const _default: {
     integer: string;
     naturalNumber: RegExp;
     negativeNumber: RegExp;
+    exist: RegExp;
 };
 export default _default;

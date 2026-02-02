@@ -42,7 +42,12 @@ function string(i: InputProperty = {}): Input<string> {
 			str = isNull(str, "no_string");
 			return str;
 		},
-		validate: (_) => true,
+		validate: (value) => {
+			if (i.regexp) {
+				return new RegExp(i.regexp).test(value);
+			}
+			return true;
+		},
 		...i,
 	};
 }
@@ -53,7 +58,12 @@ function nullableString(i: InputProperty = {}): Input<Nullable<string>> {
 			if (str === null) return null;
 			return str;
 		},
-		validate: (_) => true,
+		validate: (value) => {
+			if (i.regexp) {
+				return new RegExp(i.regexp).test(value || "");
+			}
+			return true;
+		},
 		...i,
 	};
 }
