@@ -1,3 +1,4 @@
+"use server";
 import {Document, errEmptyGraphqlResponse, errUnexpectedGraphqlError, GraphqlError, Header} from "../..";
 
 export type FetchArgs<TResult, TVariables> = {

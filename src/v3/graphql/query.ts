@@ -1,3 +1,4 @@
+"use server";
 import {Document, Header, QueryResult} from "../..";
 import fetch from "./fetch";
 
