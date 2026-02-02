@@ -19,9 +19,10 @@ function isNull(str: Nullable<string>, message: string): string {
 
 /* ---------------------------------------------------------------------------------------------------- */
 
-function field<T>(parser: InputParser<T>, i: InputProperty = {}): Input<T> {
+function field<T>(parser: InputParser<T>, validate: (v: T) => boolean, i: InputProperty = {}): Input<T> {
 	return {
 		...i,
+		validate,
 		parser,
 	};
 }
@@ -41,6 +42,7 @@ function string(i: InputProperty = {}): Input<string> {
 			str = isNull(str, "no_string");
 			return str;
 		},
+		validate: (_) => true,
 		...i,
 	};
 }
@@ -51,6 +53,7 @@ function nullableString(i: InputProperty = {}): Input<Nullable<string>> {
 			if (str === null) return null;
 			return str;
 		},
+		validate: (_) => true,
 		...i,
 	};
 }
@@ -62,6 +65,7 @@ function boolean(i: InputProperty = {}): Input<boolean> {
 			str = isNull(str, "no_boolean");
 			return str === "true";
 		},
+		validate: (_) => true,
 		...i,
 	};
 }
@@ -73,6 +77,7 @@ function nullableBoolean(i: InputProperty = {}): Input<Nullable<boolean>> {
 			if (str === null) return null;
 			return str === "true";
 		},
+		validate: (_) => true,
 		...i,
 	};
 }
@@ -86,6 +91,7 @@ function username(i: InputProperty = {}): Input<string> {
 			isInvalid(regexp.username, str, "invalid_username");
 			return str;
 		},
+		validate: (str) => new RegExp(regexp.username).test(str),
 		...i,
 	};
 }
@@ -98,6 +104,10 @@ function nullableUsername(i: InputProperty = {}): Input<Nullable<string>> {
 			if (str === null) return null;
 			isInvalid(regexp.username, str, "invalid_username");
 			return str;
+		},
+		validate: (i) => {
+			if (!i) return true;
+			return new RegExp(regexp.username).test(i);
 		},
 		...i,
 	};
@@ -112,6 +122,7 @@ function password(i: InputProperty = {}): Input<string> {
 			isInvalid(regexp.password, str, "invalid_password");
 			return str;
 		},
+		validate: (i) => new RegExp(regexp.password).test(i),
 		...i,
 	};
 }
@@ -125,6 +136,10 @@ function nullablePassword(i: InputProperty = {}): Input<Nullable<string>> {
 			isInvalid(regexp.password, str, "invalid_password");
 			return str;
 		},
+		validate: (i) => {
+			if (!i) return true;
+			return new RegExp(regexp.password).test(i);
+		},
 		...i,
 	};
 }
@@ -137,6 +152,7 @@ function otp(i: InputProperty = {}): Input<string> {
 			isInvalid(regexp.otp, str, "invalid_otp");
 			return str;
 		},
+		validate: (i) => new RegExp(regexp.otp).test(i || ""),
 		...i,
 	};
 }
@@ -148,6 +164,10 @@ function nullableOtp(i: InputProperty = {}): Input<Nullable<string>> {
 			if (str === null) return null;
 			isInvalid(regexp.otp, str, "invalid_otp");
 			return str;
+		},
+		validate: (i) => {
+			if (!i) return true;
+			return new RegExp(regexp.otp).test(i);
 		},
 		...i,
 	};
@@ -162,6 +182,7 @@ function rfc3339time(i: InputProperty = {}): Input<Date> {
 			const date = DateTime.fromISO(str);
 			return date.toJSDate();
 		},
+		validate: (_) => true,
 		...i,
 	};
 }
@@ -175,6 +196,7 @@ function nullableRfc3339time(i: InputProperty = {}): Input<Nullable<Date>> {
 			const date = DateTime.fromISO(str);
 			return date.toJSDate();
 		},
+		validate: (_) => true,
 		...i,
 	};
 }
@@ -188,6 +210,7 @@ function objectId(i: InputProperty = {}): Input<string> {
 			isInvalid(regexp.objectId, str, "invalid_object_id");
 			return str;
 		},
+		validate: (i) => new RegExp(regexp.objectId).test(i),
 		...i,
 	};
 }
@@ -200,6 +223,10 @@ function nullableObjectId(i: InputProperty = {}): Input<Nullable<string>> {
 			if (str === null) return null;
 			isInvalid(regexp.objectId, str, "invalid_object_id");
 			return str;
+		},
+		validate: (i) => {
+			if (!i) return true;
+			return new RegExp(regexp.objectId).test(i);
 		},
 		...i,
 	};
@@ -214,6 +241,7 @@ function decimal(i: InputProperty = {}): Input<string> {
 			isInvalid(regexp.decimal, str, "invalid_decimal");
 			return str;
 		},
+		validate: (i) => new RegExp(regexp.decimal).test(i),
 		...i,
 	};
 }
@@ -226,6 +254,10 @@ function nullableDecimal(i: InputProperty = {}): Input<Nullable<string>> {
 			if (str === null) return null;
 			isInvalid(regexp.decimal, str, "invalid_decimal");
 			return str;
+		},
+		validate: (i) => {
+			if (!i) return true;
+			return new RegExp(regexp.decimal).test(i);
 		},
 		...i,
 	};
@@ -240,6 +272,7 @@ function integer(i: InputProperty = {}): Input<number> {
 			isInvalid(regexp.integer, str, "invalid_integer");
 			return parseInt(str);
 		},
+		validate: (i) => new RegExp(regexp.integer).test(i.toString()),
 		...i,
 	};
 }
@@ -252,6 +285,10 @@ function nullableInteger(i: InputProperty = {}): Input<Nullable<number>> {
 			if (str === null) return null;
 			isInvalid(regexp.integer, str, "invalid_integer");
 			return parseInt(str);
+		},
+		validate: (i) => {
+			if (!i) return true;
+			return new RegExp(regexp.integer).test(i.toString());
 		},
 		...i,
 	};
@@ -266,6 +303,9 @@ function naturalNumber(i: InputProperty = {}): Input<number> {
 			isInvalid(regexp.naturalNumber, str, "invalid_natural_number");
 			return parseInt(str);
 		},
+		validate: (i) => {
+			return new RegExp(regexp.naturalNumber).test(i.toString());
+		},
 		...i,
 	};
 }
@@ -278,6 +318,10 @@ function nullableNaturalNumber(i: InputProperty = {}): Input<Nullable<number>> {
 			if (str === null) return null;
 			isInvalid(regexp.naturalNumber, str, "invalid_natural_number");
 			return parseInt(str);
+		},
+		validate: (i) => {
+			if (!i) return true;
+			return new RegExp(regexp.naturalNumber).test(i.toString());
 		},
 		...i,
 	};
@@ -292,6 +336,9 @@ function negativeNumber(i: InputProperty = {}): Input<number> {
 			isInvalid(regexp.negativeNumber, str, "invalid_negative_number");
 			return parseInt(str);
 		},
+		validate: (i) => {
+			return new RegExp(regexp.negativeNumber).test(i.toString());
+		},
 		...i,
 	};
 }
@@ -304,6 +351,10 @@ function nullableNegativeNumber(i: InputProperty = {}): Input<Nullable<number>> 
 			if (str === null) return null;
 			isInvalid(regexp.negativeNumber, str, "invalid_negative_number");
 			return parseInt(str);
+		},
+		validate: (i) => {
+			if (!i) return true;
+			return new RegExp(regexp.negativeNumber).test(i.toString());
 		},
 		...i,
 	};
@@ -331,6 +382,7 @@ function datePeriod(i: InputProperty = {}): Input<DatePeriod> {
 
 			return res;
 		},
+		validate: (_) => true,
 		...i,
 	};
 }

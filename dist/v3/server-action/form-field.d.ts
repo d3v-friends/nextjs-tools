@@ -1,6 +1,6 @@
 import { FormType, Input, InputParser, InputProperty } from "./types";
 import { DatePeriod, Nullable } from "../../types";
-declare function field<T>(parser: InputParser<T>, i?: InputProperty): Input<T>;
+declare function field<T>(parser: InputParser<T>, validate: (v: T) => boolean, i?: InputProperty): Input<T>;
 declare function create<I extends object>(form: FormType<I>): FormType<I>;
 declare function string(i?: InputProperty): Input<string>;
 declare function nullableString(i?: InputProperty): Input<Nullable<string>>;

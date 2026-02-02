@@ -38,6 +38,7 @@ function Aside({}: Readonly<AsideProps>) {
 			<h1 className="text-xl">Function</h1>
 			<Link href="/fn/logger">* logger</Link>
 			<Link href="/fn/server-action">* server-action</Link>
+			<Link href="/fn/server-form">* server-form</Link>
 		</div>
 	);
 }

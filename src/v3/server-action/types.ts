@@ -24,10 +24,15 @@ export type InputParser<T> = (str: Nullable<string>) => T;
 
 export type Input<T> = InputProperty & {
 	parser: InputParser<T>;
+	validate: (value: T) => boolean;
 };
 
 export type FormType<T extends object> = {
 	[KEY in keyof T]: Input<T[KEY]>;
+};
+
+export type UnwrapForm<F> = {
+	[K in keyof F]: F[K] extends Input<infer U> ? U : never;
 };
 
 // I = input parameter

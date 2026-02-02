@@ -6,6 +6,9 @@
 		"type": "git",
 		"url": "https://github.com/d3v-friends/nextjs-tools"
 	},
+	"scripts": {
+		"dev": "next dev"
+	},
 	"dependencies": {
 		"@types/luxon": "3.7.1",
 		"decimal.js": "10.6.0",

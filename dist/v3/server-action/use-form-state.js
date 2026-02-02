@@ -1,0 +1,6 @@
+"use client";
+import { useState } from "react";
+export default function (initial) {
+    return useState(initial);
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXNlLWZvcm0tc3RhdGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvdjMvc2VydmVyLWFjdGlvbi91c2UtZm9ybS1zdGF0ZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLENBQUM7QUFFYixPQUFPLEVBQUMsUUFBUSxFQUFDLE1BQU0sT0FBTyxDQUFDO0FBRy9CLE1BQU0sQ0FBQyxPQUFPLFdBQTZCLE9BQXNCO0lBQ2hFLE9BQU8sUUFBUSxDQUFnQixPQUFPLENBQUMsQ0FBQztBQUN6QyxDQUFDIn0=
