@@ -22,6 +22,7 @@ export {default as getLogger} from "./logger/get-logger";
 
 // password
 export {default as password} from "./password";
+export {default as salting} from "./salting";
 
 // regexp
 export {default as regexp} from "./regexp";

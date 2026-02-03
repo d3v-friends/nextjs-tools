@@ -9,6 +9,7 @@ export * from "./logger/types";
 export { default as useLogger } from "./logger/use-logger";
 export { default as getLogger } from "./logger/get-logger";
 export { default as password } from "./password";
+export { default as salting } from "./salting";
 export { default as regexp } from "./regexp";
 export { default as useRouterTools } from "./router/use-router-tools";
 export { default as getSearchParams } from "./search-params/get-search-params";
