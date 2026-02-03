@@ -1,6 +1,0 @@
-"use server";
-import { randomUUID } from "crypto";
-export default async function () {
-    return randomUUID();
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmV3LXNhbHQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvdjMvcGFzc3dvcmQvbmV3LXNhbHQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDO0FBQ2IsT0FBTyxFQUFDLFVBQVUsRUFBQyxNQUFNLFFBQVEsQ0FBQztBQUVsQyxNQUFNLENBQUMsT0FBTyxDQUFDLEtBQUs7SUFDbkIsT0FBTyxVQUFVLEVBQUUsQ0FBQztBQUNyQixDQUFDIn0=

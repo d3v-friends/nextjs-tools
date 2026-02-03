@@ -20,9 +20,9 @@ export * from "./logger/types";
 export {default as useLogger} from "./logger/use-logger";
 export {default as getLogger} from "./logger/get-logger";
 
-// password
-export {default as password} from "./password";
-export {default as salting} from "./salting";
+// salting
+export {default as createSalt} from "./salting/create";
+export {default as salting} from "./salting/salting";
 
 // regexp
 export {default as regexp} from "./regexp";
