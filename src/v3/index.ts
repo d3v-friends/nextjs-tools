@@ -10,6 +10,7 @@ export {default as getMouseButtonType} from "./event/get-mouse-button-type";
 
 // fn
 export {default as sleep} from "./fn/sleep";
+export {default as isNumber} from "./fn/is-number";
 
 // graphql
 export {default as gqlFetch} from "./graphql/fetch";

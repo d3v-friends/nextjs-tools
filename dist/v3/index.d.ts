@@ -3,6 +3,7 @@ export { default as csv } from "./csv";
 export * from "./event/types";
 export { default as getMouseButtonType } from "./event/get-mouse-button-type";
 export { default as sleep } from "./fn/sleep";
+export { default as isNumber } from "./fn/is-number";
 export { default as gqlFetch } from "./graphql/fetch";
 export { default as gqlQuery } from "./graphql/query";
 export * from "./logger/types";
