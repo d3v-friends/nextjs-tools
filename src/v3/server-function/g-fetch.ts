@@ -22,7 +22,7 @@ export default async function <TResult, TVariables>(
 			method: "POST",
 			headers: opt.header,
 			body: JSON.stringify({
-				query: query.toString(),
+				query: toString(query),
 				variables,
 			}),
 		});
@@ -45,6 +45,14 @@ export default async function <TResult, TVariables>(
 
 		return [null as TResult, JSON.stringify(e)];
 	}
+}
+
+function toString<TResult, TVariables>(value: Document<TResult, TVariables>): string {
+	const query = value.toString();
+	if (Array.isArray(query)) {
+		return query.join("");
+	}
+	return query;
 }
 
 export interface DocumentTypeDecoration<TResult, TVariables> {
