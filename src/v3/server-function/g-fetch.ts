@@ -9,7 +9,7 @@ export type Response<TResult> = [TResult, string | null];
 
 export default async function <TResult, TVariables>(
 	query: Document<TResult, TVariables>,
-	variables: TVariables,
+	variables?: TVariables,
 	opt: Partial<Options> = {}
 ): Promise<Response<TResult>> {
 	opt.host = opt.host || process.env.GRAPHQL_HOST || ".";
