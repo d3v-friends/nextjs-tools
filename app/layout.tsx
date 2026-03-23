@@ -1,7 +1,6 @@
 import {Viewport} from "next";
 import {NextLayoutProps} from "@src";
 import Link from "next/link";
-import {ReactNode} from "react";
 import "./index.scss";
 
 export const viewport: Viewport = {
@@ -17,40 +16,26 @@ export default async function ({children}: NextLayoutProps) {
 					<Nav />
 				</nav>
 				<div className="h-5" />
-				<main className="max-w-[1440px] ml-auto mr-auto flex">
-					<aside className="w-1/5">
-						<Aside />
-					</aside>
-					<div className="w-4/5">{children}</div>
-				</main>
+				{children}
 			</body>
 		</html>
 	);
 }
 
-interface AsideProps {
-	children?: ReactNode;
-}
-
-function Aside({}: Readonly<AsideProps>) {
-	return (
-		<div className="flex flex-col">
-			<h1 className="text-xl">Function</h1>
-			<Link href="/fn/logger">* logger</Link>
-			<Link href="/fn/server-action">* server-action</Link>
-			<Link href="/fn/server-form">* server-form</Link>
-		</div>
-	);
-}
-
-interface NavProps {
-	children?: ReactNode;
-}
-
-function Nav({}: Readonly<NavProps>) {
+function Nav() {
 	return (
 		<div className="max-w-[1440px] ml-auto mr-auto flex items-center h-full">
 			<Link href="/">HOME</Link>
+			<Link
+				href="/fn/logger"
+				className="ml-2">
+				Fn
+			</Link>
+			<Link
+				href="/hook/use-pending"
+				className="ml-2">
+				Hook
+			</Link>
 		</div>
 	);
 }

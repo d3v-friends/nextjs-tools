@@ -16,6 +16,9 @@ export {default as isNumber} from "./fn/is-number";
 export {default as gqlFetch} from "./graphql/fetch";
 export {default as gqlQuery} from "./graphql/query";
 
+/* hook */
+export {default as usePending} from "./hook/use-pending";
+
 // logger
 export * from "./logger/types";
 export {default as useLogger} from "./logger/use-logger";
@@ -42,3 +45,6 @@ export {default as formField} from "./server-action/form-field";
 export {default as unwrapForm} from "./server-action/unwrap-form";
 export {default as serverFunction} from "./server-action/server-function";
 export {default as useFormState} from "./server-action/use-form-state";
+
+// server-function
+export {default as gFetch} from "./server-function/g-fetch";
