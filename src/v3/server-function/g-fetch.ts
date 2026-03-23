@@ -47,11 +47,11 @@ export default async function <TResult, TVariables>(
 	}
 }
 
-interface DocumentTypeDecoration<TResult, TVariables> {
+export interface DocumentTypeDecoration<TResult, TVariables> {
 	__apiType?: (variables: TVariables) => TResult;
 }
 
-interface Document<TResult, TVariables> {
+export interface Document<TResult, TVariables> {
 	toString(): string & DocumentTypeDecoration<TResult, TVariables>;
 }
 

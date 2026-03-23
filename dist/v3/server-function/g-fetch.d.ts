@@ -4,10 +4,9 @@ export interface Options {
 }
 export type Response<TResult> = [TResult, string | null];
 export default function <TResult, TVariables>(query: Document<TResult, TVariables>, variables: TVariables, opt?: Partial<Options>): Promise<Response<TResult>>;
-interface DocumentTypeDecoration<TResult, TVariables> {
+export interface DocumentTypeDecoration<TResult, TVariables> {
     __apiType?: (variables: TVariables) => TResult;
 }
-interface Document<TResult, TVariables> {
+export interface Document<TResult, TVariables> {
     toString(): string & DocumentTypeDecoration<TResult, TVariables>;
 }
-export {};
