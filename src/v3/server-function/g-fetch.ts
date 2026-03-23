@@ -1,6 +1,6 @@
 "use server";
 
-interface Options {
+export interface Options {
 	host: string;
 	header: Record<string, string>;
 }
