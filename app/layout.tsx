@@ -1,5 +1,5 @@
 import {Viewport} from "next";
-import {NextLayoutProps} from "@src";
+import {GFetchPromiseChaining, NextLayoutProps} from "@src";
 import Link from "next/link";
 import "./index.scss";
 
@@ -12,6 +12,7 @@ export default async function ({children}: NextLayoutProps) {
 	return (
 		<html lang="ko">
 			<body>
+				<GFetchPromiseChaining />
 				<nav className="sticky top-0 left-0 w-full h-15 shadow-2xl shadow-[rgba(0,0,0,0.1)]">
 					<Nav />
 				</nav>

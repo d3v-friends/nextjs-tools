@@ -21,6 +21,7 @@ function Aside() {
 		<div className="flex flex-col">
 			<h1 className="text-xl">Function</h1>
 			<Link href="/fn/logger">* logger</Link>
+			<Link href="/fn/modal">* modal</Link>
 			<Link href="/fn/server-action">* server-action</Link>
 			<Link href="/fn/server-form">* server-form</Link>
 			<Link href="/fn/server-function">* server-function</Link>

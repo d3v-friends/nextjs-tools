@@ -24,6 +24,9 @@ export * from "./logger/types";
 export {default as useLogger} from "./logger/use-logger";
 export {default as getLogger} from "./logger/get-logger";
 
+// modal
+export {default as modal} from "./modal/base";
+
 // salting
 export {default as createSalt} from "./salting/create";
 export {default as salting} from "./salting/salting";
@@ -48,3 +51,4 @@ export {default as useFormState} from "./server-action/use-form-state";
 
 // server-function
 export {default as gFetch} from "./server-function/g-fetch";
+export {default as GFetchPromiseChaining} from "./server-function/promise-chaining";
