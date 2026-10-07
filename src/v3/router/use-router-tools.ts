@@ -9,6 +9,12 @@ import {useRouter} from "next/navigation";
 class RouterTools implements AppRouterInstance {
 	constructor(public readonly router: AppRouterInstance) {}
 
+	bfcacheId: string = "";
+
+	experimental_gesturePush?(href: string, options?: NavigateOptions): void {
+		throw new Error("Method not implemented.");
+	}
+
 	pushBySearchParams(
 		searchParams: Record<string, Date | string | number | null | undefined | string[] | number[]>,
 		host?: string,

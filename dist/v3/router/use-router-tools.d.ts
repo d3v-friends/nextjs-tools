@@ -2,6 +2,8 @@ import { AppRouterInstance, NavigateOptions, PrefetchOptions } from "next/dist/s
 declare class RouterTools implements AppRouterInstance {
     readonly router: AppRouterInstance;
     constructor(router: AppRouterInstance);
+    bfcacheId: string;
+    experimental_gesturePush?(href: string, options?: NavigateOptions): void;
     pushBySearchParams(searchParams: Record<string, Date | string | number | null | undefined | string[] | number[]>, host?: string, options?: NavigateOptions): void;
     push(href: string, options?: NavigateOptions): void;
     refresh(): void;
